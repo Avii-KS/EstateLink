@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact EstateLink - Government of India Property Management System"
+    />
+    <meta
+      name="keywords"
+      content="contact, property, registration, government, india, real-estate, land records"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>Contact - EstateLink - Government of India Property Management System</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <img
+            src="./images/national-emblem.png"
+            alt="National Emblem of India"
+            class="emblem"
+          />
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="property-search.html">Property Search</a></li>
+            <li><a href="Encumbrances.html">Encumbrances</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Contact Hero Section -->
+      <section class="contact-hero">
+        <div class="contact-hero-content">
+          <h1>Contact Us</h1>
+          <p>We're here to help you with your property management needs</p>
+        </div>
+      </section>
+
+      <!-- Contact Information Section -->
+      <section class="contact-info-section">
+        <div class="container">
+          <div class="contact-info-grid">
+            <div class="contact-info-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Head Office</h3>
+              <p>Ministry of Housing and Urban Affairs</p>
+              <p>Nirman Bhawan, New Delhi - 110011</p>
+            </div>
+            <div class="contact-info-card">
+              <i class="fas fa-phone"></i>
+              <h3>Phone</h3>
+              <p>+91-11-12345678</p>
+              <p>+91-11-87654321</p>
+            </div>
+            <div class="contact-info-card">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>support@estatelink.gov.in</p>
+              <p>helpdesk@estatelink.gov.in</p>
+            </div>
+            <div class="contact-info-card">
+              <i class="fas fa-clock"></i>
+              <h3>Working Hours</h3>
+              <p>Monday to Friday: 9:00 AM - 6:00 PM</p>
+              <p>Saturday: 9:00 AM - 1:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section class="contact-form-section">
+        <div class="container">
+          <div class="contact-form-container">
+            <h2>Send us a Message</h2>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select Subject</option>
+                  <option value="property-registration">Property Registration</option>
+                  <option value="land-records">Land Records</option>
+                  <option value="encumbrance">Encumbrance Certificate</option>
+                  <option value="technical-support">Technical Support</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How do I register a property?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Property registration can be done through our online portal. You'll need to provide property details, ownership documents, and pay the required fees. Our step-by-step guide will help you through the process.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What documents are required for property search?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>For property search, you'll need either the property ID, owner's name, or address details. Additional documents may be required depending on the type of search you're conducting.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How can I get an encumbrance certificate?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>You can apply for an encumbrance certificate online through our portal. The process requires property details and a nominal fee. The certificate will be issued within 3-5 working days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="./images/national-emblem.png" alt="National Emblem" />
+          <div class="footer-text">
+            <h3>EstateLink</h3>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="property-search.html">Property Search</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Property Registration</a></li>
+              <li><a href="#">Land Records</a></li>
+              <li><a href="#">Encumbrance Certificate</a></li>
+              <li><a href="#">Property Valuation</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><i class="fas fa-phone"></i> +91-11-12345678</li>
+              <li><i class="fas fa-envelope"></i> support@estatelink.gov.in</li>
+              <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 EstateLink - Government of India. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+    <script src="./js/contact.js"></script>
+  </body>
+</html> 

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EstateLink - Government of India Property Management System"
+    />
+    <meta
+      name="keywords"
+      content="property, services, government, india, real-estate, land records"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>Services - EstateLink</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/services.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html">
+            <img
+              src="./images/national-emblem.png"
+              alt="National Emblem of India"
+              class="emblem"
+            />
+          </a>
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="property-search.html">Property Search</a></li>
+          <li><a href="Encumbrances.html">Encumbrances</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Title Section -->
+      <section class="page-title-section">
+        <div class="container">
+          <h1>Our Services</h1>
+          <p>Comprehensive property management solutions for citizens</p>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="services-section">
+        <div class="container">
+          <div class="services-grid">
+            <!-- Property Registration -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-file-contract"></i>
+              </div>
+              <h3>Property Registration</h3>
+              <p>Register your property online with secure digital documentation</p>
+              <ul class="service-features">
+                <li>Online document submission</li>
+                <li>Digital signature support</li>
+                <li>Real-time status tracking</li>
+                <li>Secure payment gateway</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <!-- Encumbrance Certificate -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h3>Encumbrance Certificate</h3>
+              <p>Obtain encumbrance certificates for property transactions</p>
+              <ul class="service-features">
+                <li>Instant online application</li>
+                <li>Multiple year coverage</li>
+                <li>Digital certificate delivery</li>
+                <li>Verification services</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <!-- Property Valuation -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-calculator"></i>
+              </div>
+              <h3>Property Valuation</h3>
+              <p>Get accurate property valuations for various purposes</p>
+              <ul class="service-features">
+                <li>Market value assessment</li>
+                <li>Tax assessment support</li>
+                <li>Historical data analysis</li>
+                <li>Expert consultation</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <!-- Land Records -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>Land Records</h3>
+              <p>Access and manage land records with ease</p>
+              <ul class="service-features">
+                <li>Digital land records</li>
+                <li>Mutation services</li>
+                <li>Boundary verification</li>
+                <li>Survey information</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <!-- Document Verification -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Document Verification</h3>
+              <p>Verify property documents and ownership details</p>
+              <ul class="service-features">
+                <li>Online verification</li>
+                <li>Fraud detection</li>
+                <li>Document authentication</li>
+                <li>History tracking</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <!-- Property Tax -->
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <h3>Property Tax</h3>
+              <p>Manage property tax payments and assessments</p>
+              <ul class="service-features">
+                <li>Online tax payment</li>
+                <li>Assessment calculator</li>
+                <li>Payment history</li>
+                <li>Receipt generation</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="how-it-works-section">
+        <div class="container">
+          <h2>How It Works</h2>
+          <div class="steps-container">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Select Service</h3>
+                <p>Choose from our range of property management services</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Fill Details</h3>
+                <p>Provide necessary property and personal information</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Upload Documents</h3>
+                <p>Submit required documents securely online</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Make Payment</h3>
+                <p>Pay applicable fees through secure payment gateway</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3>Receive Service</h3>
+                <p>Get your service delivered digitally or physically</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support Section -->
+      <section class="support-section">
+        <div class="container">
+          <h2>Need Help?</h2>
+          <div class="support-options">
+            <div class="support-card">
+              <i class="fas fa-headset"></i>
+              <h3>24/7 Support</h3>
+              <p>Get assistance anytime through our helpline</p>
+              <a href="tel:+911123456789" class="btn btn-outline">Call Now</a>
+            </div>
+            <div class="support-card">
+              <i class="fas fa-comments"></i>
+              <h3>Live Chat</h3>
+              <p>Chat with our support team in real-time</p>
+              <button class="btn btn-outline">Start Chat</button>
+            </div>
+            <div class="support-card">
+              <i class="fas fa-envelope"></i>
+              <h3>Email Support</h3>
+              <p>Send us your queries via email</p>
+              <a href="mailto:support@estatelink.gov.in" class="btn btn-outline">Email Us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-section">
+              <h3>EstateLink</h3>
+              <p>Unified Property Management System</p>
+              <div class="footer-emblem">
+                <img
+                  src="./images/national-emblem.png"
+                  alt="National Emblem of India"
+                />
+                <p>Government of India</p>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="property-search.html">Property Search</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Key Services</h3>
+              <ul class="footer-links">
+                <li><a href="#">Property Registration</a></li>
+                <li><a href="#">Encumbrance Certificate</a></li>
+                <li><a href="#">Property Valuation</a></li>
+                <li><a href="#">Land Records</a></li>
+                <li><a href="#">Document Verification</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <address>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> Ministry of Housing and
+                  Urban Affairs
+                </p>
+                <p>Nirman Bhawan, New Delhi - 110011</p>
+                <p><i class="fas fa-phone"></i> +91-11-23061000</p>
+                <p><i class="fas fa-envelope"></i> support@estatelink.gov.in</p>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            &copy; 2023 EstateLink - Government of India. All rights reserved.
+          </p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+  </body>
+</html> 
