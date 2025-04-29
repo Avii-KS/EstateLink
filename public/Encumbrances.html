@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EstateLink - Government of India Property Management System">
+    <meta name="keywords" content="property, services, government, india, real-estate, land records">
+    <meta name="author" content="Government of India">
+    <title>Encumbrances - EstateLink</title>
+    <link rel="icon" href="./images/national-emblem.png" type="image/png">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/encumbrances.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="./images/national-emblem.png" alt="National Emblem of India" class="emblem">
+                </a>
+                <div class="header-text">
+                    <h1 class="site-title">EstateLink</h1>
+                    <h2 class="site-subtitle">Government of India</h2>
+                    <p class="site-tagline">Unified Property Management System</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="language-selector">
+                    <select id="language-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <div class="user-actions">
+                    <button id="login-btn" class="btn btn-outline">Login</button>
+                    <button id="register-btn" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="property-search.html">Property Search</a></li>
+                <li><a href="Encumbrances.html" class="active">Encumbrances</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Title Section -->
+        <section class="page-title-section">
+            <div class="container">
+                <h1>Encumbrances Certificate</h1>
+                <p>Verify property encumbrances and legal status with our official certificate service</p>
+            </div>
+        </section>
+
+        <!-- Encumbrances Form Section -->
+        <section class="encumbrances-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h2>Request Encumbrances Certificate</h2>
+                    <form id="encumbrancesForm" class="encumbrances-form">
+                        <div class="form-group">
+                            <label for="propertyId">Property ID</label>
+                            <input type="text" id="propertyId" name="propertyId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerName">Owner Name</label>
+                            <input type="text" id="ownerName" name="ownerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="propertyAddress">Property Address</label>
+                            <textarea id="propertyAddress" name="propertyAddress" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="period">Period (Years)</label>
+                            <select id="period" name="period" required>
+                                <option value="5">5 Years</option>
+                                <option value="10">10 Years</option>
+                                <option value="15">15 Years</option>
+                                <option value="20">20 Years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose">Purpose</label>
+                            <select id="purpose" name="purpose" required>
+                                <option value="loan">Loan</option>
+                                <option value="sale">Sale</option>
+                                <option value="legal">Legal Proceedings</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="documents">Supporting Documents</label>
+                            <input type="file" id="documents" name="documents" multiple>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Certificate</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>What is an Encumbrances Certificate?</h3>
+                        <p>An Encumbrances Certificate (EC) is a legal document that provides information about any legal liabilities or charges on a property.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Processing Time</h3>
+                        <p>Standard processing time is 3-5 working days. Express service available for urgent requests.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Required Documents</h3>
+                        <ul>
+                            <li>Property ID proof</li>
+                            <li>Owner's identity proof</li>
+                            <li>Address proof</li>
+                            <li>Previous EC (if any)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>What information does an EC contain?</h3>
+                        <p>An EC contains details of all registered transactions related to the property, including sales, mortgages, leases, and other encumbrances.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How long is an EC valid?</h3>
+                        <p>An EC is valid for 6 months from the date of issue. For legal purposes, a fresh EC may be required.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I get an EC for any property?</h3>
+                        <p>Yes, you can request an EC for any registered property in India. The property must be properly registered with the government.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>EstateLink</h3>
+                        <p>Unified Property Management System</p>
+                        <div class="footer-emblem">
+                            <img src="./images/national-emblem.png" alt="National Emblem of India">
+                            <p>Government of India</p>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="property-search.html">Property Search</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Key Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Property Registration</a></li>
+                            <li><a href="#">Encumbrance Certificate</a></li>
+                            <li><a href="#">Property Valuation</a></li>
+                            <li><a href="#">Land Records</a></li>
+                            <li><a href="#">Document Verification</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <address>
+                            <p><i class="fas fa-map-marker-alt"></i> Ministry of Housing and Urban Affairs</p>
+                            <p>Nirman Bhawan, New Delhi - 110011</p>
+                            <p><i class="fas fa-phone"></i> +91-11-23061000</p>
+                            <p><i class="fas fa-envelope"></i> support@estatelink.gov.in</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 EstateLink - Government of India. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/encumbrances.js"></script>
+</body>
+</html> 
