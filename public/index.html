@@ -67,7 +67,7 @@
       <nav class="main-nav">
         <ul class="nav-links">
           <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Property Search</a></li>
+          <li><a href="property-search.html">Property Search</a></li>
           <li><a href="#">Encumbrances</a></li>
           <li><a href="#">Services</a></li>
           <li><a href="#">About</a></li>
@@ -89,9 +89,13 @@
             Search and access property records from multiple government
             databases in one place.
           </p>
-          <button id="start-search-btn" class="btn btn-primary btn-large">
+          <a
+            href="property-search.html"
+            id="start-search-btn"
+            class="btn btn-primary btn-large"
+          >
             Start Your Search
-          </button>
+          </a>
         </div>
       </section>
 
@@ -103,7 +107,11 @@
         </div>
 
         <div class="search-form-container">
-          <form id="property-search-form" class="property-search-form">
+          <form
+            id="property-search-form"
+            class="property-search-form"
+            action="property-search.html"
+          >
             <!-- Search Type Selector -->
             <div class="form-group">
               <label for="search-type">Search By</label>

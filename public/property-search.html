@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EstateLink - Search for properties across government databases"
+    />
+    <meta
+      name="keywords"
+      content="property, search, government, india, real-estate, land records"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>Property Search - EstateLink</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html">
+            <img
+              src="./images/national-emblem.png"
+              alt="National Emblem of India"
+              class="emblem"
+            />
+          </a>
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="property-search.html" class="active">Property Search</a>
+          </li>
+          <li><a href="#">Encumbrances</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Title Section -->
+      <section class="page-title-section">
+        <div class="container">
+          <h1>Property Search</h1>
+          <p>Search for properties across multiple government databases</p>
+        </div>
+      </section>
+
+      <!-- Property Search Section -->
+      <section class="property-search-page">
+        <div class="container">
+          <div class="search-container">
+            <div class="search-options">
+              <div class="search-tabs">
+                <button class="search-tab active" data-tab="basic-search">
+                  Basic Search
+                </button>
+                <button class="search-tab" data-tab="advanced-search">
+                  Advanced Search
+                </button>
+              </div>
+
+              <!-- Basic Search Form -->
+              <div class="search-form-wrapper active" id="basic-search">
+                <form id="basic-search-form" class="search-form">
+                  <div class="form-row">
+                    <div class="form-group full-width">
+                      <label for="search-type">Search By</label>
+                      <select id="search-type" name="searchType" required>
+                        <option value="" disabled selected>
+                          Select Search Type
+                        </option>
+                        <option value="propertyId">Property ID</option>
+                        <option value="ownerDetails">Owner Details</option>
+                        <option value="address">Address</option>
+                        <option value="registrationNumber">
+                          Registration Number
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Property ID Section (initially hidden) -->
+                  <div id="propertyId-search" class="search-section hidden">
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="property-id-type">Property ID Type</label>
+                        <select id="property-id-type" name="propertyIdType">
+                          <option value="" disabled selected>
+                            Select ID Type
+                          </option>
+                          <option value="DORIS">DORIS ID</option>
+                          <option value="DLR">DLR/Khasra ID</option>
+                          <option value="CERSAI">CERSAI Asset ID</option>
+                          <option value="MCA21">MCA21 Property ID</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="property-id">Property ID</label>
+                        <input
+                          type="text"
+                          id="property-id"
+                          name="propertyId"
+                          placeholder="Enter Property ID"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Owner Details Section (initially hidden) -->
+                  <div id="ownerDetails-search" class="search-section hidden">
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="owner-name">Owner Name</label>
+                        <input
+                          type="text"
+                          id="owner-name"
+                          name="ownerName"
+                          placeholder="Enter Owner Name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="aadhaar-number"
+                          >Aadhaar Number (Optional)</label
+                        >
+                        <div class="input-with-button">
+                          <input
+                            type="text"
+                            id="aadhaar-number"
+                            name="aadhaarNumber"
+                            placeholder="XXXX-XXXX-XXXX"
+                            maxlength="12"
+                            pattern="[0-9]{12}"
+                          />
+                          <button
+                            type="button"
+                            id="verify-aadhaar-btn"
+                            class="btn btn-secondary"
+                          >
+                            Verify
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Address Section (initially hidden) -->
+                  <div id="address-search" class="search-section hidden">
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state">
+                          <option value="" disabled selected>
+                            Select State
+                          </option>
+                          <option value="ANDHRA PRADESH">Andhra Pradesh</option>
+                          <option value="ARUNACHAL PRADESH">
+                            Arunachal Pradesh
+                          </option>
+                          <option value="ASSAM">Assam</option>
+                          <option value="BIHAR">Bihar</option>
+                          <option value="CHHATTISGARH">Chhattisgarh</option>
+                          <option value="GOA">Goa</option>
+                          <option value="GUJARAT">Gujarat</option>
+                          <option value="HARYANA">Haryana</option>
+                          <option value="HIMACHAL PRADESH">
+                            Himachal Pradesh
+                          </option>
+                          <option value="JHARKHAND">Jharkhand</option>
+                          <option value="KARNATAKA">Karnataka</option>
+                          <option value="KERALA">Kerala</option>
+                          <option value="MADHYA PRADESH">Madhya Pradesh</option>
+                          <option value="MAHARASHTRA">Maharashtra</option>
+                          <option value="MANIPUR">Manipur</option>
+                          <option value="MEGHALAYA">Meghalaya</option>
+                          <option value="MIZORAM">Mizoram</option>
+                          <option value="NAGALAND">Nagaland</option>
+                          <option value="ODISHA">Odisha</option>
+                          <option value="PUNJAB">Punjab</option>
+                          <option value="RAJASTHAN">Rajasthan</option>
+                          <option value="SIKKIM">Sikkim</option>
+                          <option value="TAMIL NADU">Tamil Nadu</option>
+                          <option value="TELANGANA">Telangana</option>
+                          <option value="TRIPURA">Tripura</option>
+                          <option value="UTTAR PRADESH">Uttar Pradesh</option>
+                          <option value="UTTARAKHAND">Uttarakhand</option>
+                          <option value="WEST BENGAL">West Bengal</option>
+                          <option value="DELHI">Delhi</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="district">District</label>
+                        <select id="district" name="district">
+                          <option value="" disabled selected>
+                            Select District
+                          </option>
+                          <!-- Will be populated based on state selection -->
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="taluka">Taluka/Tehsil</label>
+                        <select id="taluka" name="taluka">
+                          <option value="" disabled selected>
+                            Select Taluka
+                          </option>
+                          <!-- Will be populated based on district selection -->
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="village-city">Village/City</label>
+                        <input
+                          type="text"
+                          id="village-city"
+                          name="villageCity"
+                          placeholder="Enter Village or City Name"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Registration Number Section (initially hidden) -->
+                  <div
+                    id="registrationNumber-search"
+                    class="search-section hidden"
+                  >
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label for="registration-number"
+                          >Registration Number</label
+                        >
+                        <input
+                          type="text"
+                          id="registration-number"
+                          name="registrationNumber"
+                          placeholder="Enter Registration Number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="registration-year">Registration Year</label>
+                        <select id="registration-year" name="registrationYear">
+                          <option value="" disabled selected>
+                            Select Year
+                          </option>
+                          <!-- Years will be populated by JavaScript -->
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group full-width">
+                        <label for="registration-office"
+                          >Registration Office</label
+                        >
+                        <input
+                          type="text"
+                          id="registration-office"
+                          name="registrationOffice"
+                          placeholder="Enter Registration Office"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Property Type Section (common for all search types) -->
+                  <div class="form-row">
+                    <div class="form-group full-width">
+                      <label>Property Type</label>
+                      <div class="radio-group">
+                        <div class="radio-option">
+                          <input
+                            type="radio"
+                            id="property-type-all"
+                            name="propertyType"
+                            value="All"
+                            checked
+                          />
+                          <label for="property-type-all">All</label>
+                        </div>
+                        <div class="radio-option">
+                          <input
+                            type="radio"
+                            id="property-type-rural"
+                            name="propertyType"
+                            value="Rural"
+                          />
+                          <label for="property-type-rural">Rural</label>
+                        </div>
+                        <div class="radio-option">
+                          <input
+                            type="radio"
+                            id="property-type-urban"
+                            name="propertyType"
+                            value="Urban"
+                          />
+                          <label for="property-type-urban">Urban</label>
+                        </div>
+                        <div class="radio-option">
+                          <input
+                            type="radio"
+                            id="property-type-commercial"
+                            name="propertyType"
+                            value="Commercial"
+                          />
+                          <label for="property-type-commercial"
+                            >Commercial</label
+                          >
+                        </div>
+                        <div class="radio-option">
+                          <input
+                            type="radio"
+                            id="property-type-industrial"
+                            name="propertyType"
+                            value="Industrial"
+                          />
+                          <label for="property-type-industrial"
+                            >Industrial</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="reset" class="btn btn-outline">Reset</button>
+                    <button type="submit" class="btn btn-primary">
+                      Search
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Advanced Search Form -->
+              <div class="search-form-wrapper" id="advanced-search">
+                <form id="advanced-search-form" class="search-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="adv-source-system">Source System</label>
+                      <select id="adv-source-system" name="sourceSystem">
+                        <option value="" disabled selected>
+                          Select Source
+                        </option>
+                        <option value="All">All Systems</option>
+                        <option value="DORIS">
+                          DORIS (Department of Registration)
+                        </option>
+                        <option value="DLR">DLR (Digital Land Records)</option>
+                        <option value="CERSAI">CERSAI Registry</option>
+                        <option value="MCA21">MCA21 Corporate Assets</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="adv-property-type">Property Type</label>
+                      <select id="adv-property-type" name="propertyType">
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="All">All Types</option>
+                        <option value="Rural">Rural</option>
+                        <option value="Urban">Urban</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Industrial">Industrial</option>
+                        <option value="Agricultural">Agricultural</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="adv-owner-name">Owner Name</label>
+                      <input
+                        type="text"
+                        id="adv-owner-name"
+                        name="ownerName"
+                        placeholder="Enter Owner Name"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="adv-transaction-type">Transaction Type</label>
+                      <select id="adv-transaction-type" name="transactionType">
+                        <option value="" disabled selected>
+                          Select Transaction
+                        </option>
+                        <option value="All">All Transactions</option>
+                        <option value="Sale">Sale Deed</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Gift">Gift Deed</option>
+                        <option value="Inheritance">Inheritance</option>
+                        <option value="Mortgage">Mortgage</option>
+                        <option value="Lease">Lease</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="adv-state">State</label>
+                      <select id="adv-state" name="state">
+                        <option value="" disabled selected>Select State</option>
+                        <option value="All">All States</option>
+                        <option value="ANDHRA PRADESH">Andhra Pradesh</option>
+                        <option value="ARUNACHAL PRADESH">
+                          Arunachal Pradesh
+                        </option>
+                        <option value="ASSAM">Assam</option>
+                        <option value="BIHAR">Bihar</option>
+                        <option value="CHHATTISGARH">Chhattisgarh</option>
+                        <option value="GOA">Goa</option>
+                        <option value="GUJARAT">Gujarat</option>
+                        <option value="HARYANA">Haryana</option>
+                        <option value="HIMACHAL PRADESH">
+                          Himachal Pradesh
+                        </option>
+                        <option value="JHARKHAND">Jharkhand</option>
+                        <option value="KARNATAKA">Karnataka</option>
+                        <option value="KERALA">Kerala</option>
+                        <option value="MADHYA PRADESH">Madhya Pradesh</option>
+                        <option value="MAHARASHTRA">Maharashtra</option>
+                        <option value="MANIPUR">Manipur</option>
+                        <option value="MEGHALAYA">Meghalaya</option>
+                        <option value="MIZORAM">Mizoram</option>
+                        <option value="NAGALAND">Nagaland</option>
+                        <option value="ODISHA">Odisha</option>
+                        <option value="PUNJAB">Punjab</option>
+                        <option value="RAJASTHAN">Rajasthan</option>
+                        <option value="SIKKIM">Sikkim</option>
+                        <option value="TAMIL NADU">Tamil Nadu</option>
+                        <option value="TELANGANA">Telangana</option>
+                        <option value="TRIPURA">Tripura</option>
+                        <option value="UTTAR PRADESH">Uttar Pradesh</option>
+                        <option value="UTTARAKHAND">Uttarakhand</option>
+                        <option value="WEST BENGAL">West Bengal</option>
+                        <option value="DELHI">Delhi</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="adv-district">District</label>
+                      <select id="adv-district" name="district">
+                        <option value="" disabled selected>
+                          Select District
+                        </option>
+                        <!-- Will be populated based on state selection -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="adv-date-from">Date From</label>
+                      <input type="date" id="adv-date-from" name="dateFrom" />
+                    </div>
+                    <div class="form-group">
+                      <label for="adv-date-to">Date To</label>
+                      <input type="date" id="adv-date-to" name="dateTo" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="adv-value-min">Minimum Value (₹)</label>
+                      <input
+                        type="number"
+                        id="adv-value-min"
+                        name="valueMin"
+                        placeholder="Minimum Value"
+                        min="0"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="adv-value-max">Maximum Value (₹)</label>
+                      <input
+                        type="number"
+                        id="adv-value-max"
+                        name="valueMax"
+                        placeholder="Maximum Value"
+                        min="0"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="reset" class="btn btn-outline">Reset</button>
+                    <button type="submit" class="btn btn-primary">
+                      Search
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Search Results (Initially Hidden) -->
+            <div id="search-results" class="search-results hidden">
+              <h2>Search Results</h2>
+              <div class="results-filters">
+                <div class="results-count">
+                  Showing <span id="results-number">0</span> results
+                </div>
+                <div class="results-sort">
+                  <label for="sort-by">Sort by:</label>
+                  <select id="sort-by">
+                    <option value="relevance">Relevance</option>
+                    <option value="date-desc">Date (Newest)</option>
+                    <option value="date-asc">Date (Oldest)</option>
+                    <option value="value-desc">Value (Highest)</option>
+                    <option value="value-asc">Value (Lowest)</option>
+                  </select>
+                </div>
+              </div>
+              <div id="results-list" class="results-list">
+                <!-- Results will be populated by JavaScript -->
+                <div class="no-results">
+                  <p>
+                    No properties found. Please try a different search criteria.
+                  </p>
+                </div>
+              </div>
+              <div class="results-pagination">
+                <button id="prev-page" class="btn btn-pagination" disabled>
+                  <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="pagination-info">
+                  Page <span id="current-page">1</span> of
+                  <span id="total-pages">1</span>
+                </div>
+                <button id="next-page" class="btn btn-pagination" disabled>
+                  Next <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Help Section -->
+      <section class="help-section">
+        <div class="container">
+          <h2>Need Help?</h2>
+          <div class="help-options">
+            <div class="help-card">
+              <div class="help-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3>User Guide</h3>
+              <p>Learn how to use the property search effectively.</p>
+              <a href="#" class="btn btn-text"
+                >View Guide <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+            <div class="help-card">
+              <div class="help-icon">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <h3>FAQ</h3>
+              <p>Find answers to frequently asked questions.</p>
+              <a href="#" class="btn btn-text"
+                >View FAQs <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+            <div class="help-card">
+              <div class="help-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3>Support</h3>
+              <p>Contact our support team for assistance.</p>
+              <a href="#" class="btn btn-text"
+                >Get Support <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-section">
+              <h3>EstateLink</h3>
+              <p>Unified Property Management System</p>
+              <div class="footer-emblem">
+                <img
+                  src="./images/national-emblem.png"
+                  alt="National Emblem of India"
+                />
+                <p>Government of India</p>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="property-search.html">Property Search</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Key Services</h3>
+              <ul class="footer-links">
+                <li><a href="#">Property Registration</a></li>
+                <li><a href="#">Encumbrance Certificate</a></li>
+                <li><a href="#">Property Valuation</a></li>
+                <li><a href="#">Land Records</a></li>
+                <li><a href="#">Document Verification</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Contact Us</h3>
+              <address>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> Ministry of Housing and
+                  Urban Affairs
+                </p>
+                <p>Nirman Bhawan, New Delhi - 110011</p>
+                <p><i class="fas fa-phone"></i> +91-11-23061000</p>
+                <p><i class="fas fa-envelope"></i> support@estatelink.gov.in</p>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            &copy; 2023 EstateLink - Government of India. All rights reserved.
+          </p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/property-search.js"></script>
+  </body>
+</html>
