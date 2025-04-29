@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Government of India Property Management System - EstateLink"
+    />
+    <meta
+      name="keywords"
+      content="property, registration, government, india, real-estate, land records"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>EstateLink - Government of India Property Management System</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <img
+            src="./images/national-emblem.png"
+            alt="National Emblem of India"
+            class="emblem"
+          />
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Property Search</a></li>
+          <li><a href="#">Encumbrances</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2>Unified Property Records Portal</h2>
+          <p>
+            Search and access property records from multiple government
+            databases in one place.
+          </p>
+          <button id="start-search-btn" class="btn btn-primary btn-large">
+            Start Your Search
+          </button>
+        </div>
+      </section>
+
+      <!-- Property Search Form Section -->
+      <section id="property-search-section" class="property-search-section">
+        <div class="section-header">
+          <h2>Property Search</h2>
+          <p>Search across DORIS, DLR, CERSAI, and MCA21 databases</p>
+        </div>
+
+        <div class="search-form-container">
+          <form id="property-search-form" class="property-search-form">
+            <!-- Search Type Selector -->
+            <div class="form-group">
+              <label for="search-type">Search By</label>
+              <select id="search-type" name="searchType" required>
+                <option value="" disabled selected>Select Search Type</option>
+                <option value="propertyId">Property ID</option>
+                <option value="ownerDetails">Owner Details</option>
+                <option value="address">Address</option>
+                <option value="registrationNumber">Registration Number</option>
+              </select>
+            </div>
+
+            <!-- Property ID Section (initially hidden) -->
+            <div id="propertyId-section" class="form-section hidden">
+              <div class="form-group">
+                <label for="property-id-type">Property ID Type</label>
+                <select id="property-id-type" name="propertyIdType">
+                  <option value="" disabled selected>Select ID Type</option>
+                  <option value="DORIS">DORIS ID</option>
+                  <option value="DLR">DLR/Khasra ID</option>
+                  <option value="CERSAI">CERSAI Asset ID</option>
+                  <option value="MCA21">MCA21 Property ID</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="property-id">Property ID</label>
+                <input
+                  type="text"
+                  id="property-id"
+                  name="propertyId"
+                  placeholder="Enter Property ID"
+                />
+              </div>
+            </div>
+
+            <!-- Owner Details Section (initially hidden) -->
+            <div id="ownerDetails-section" class="form-section hidden">
+              <div class="form-group">
+                <label for="owner-name">Owner Name</label>
+                <input
+                  type="text"
+                  id="owner-name"
+                  name="ownerName"
+                  placeholder="Enter Owner Name"
+                />
+              </div>
+              <div class="form-group aadhaar-section">
+                <label for="aadhaar-number">Aadhaar Number (Optional)</label>
+                <div class="aadhaar-input-container">
+                  <input
+                    type="text"
+                    id="aadhaar-number"
+                    name="aadhaarNumber"
+                    placeholder="XXXX-XXXX-XXXX"
+                    maxlength="12"
+                    pattern="[0-9]{12}"
+                  />
+                  <button
+                    type="button"
+                    id="verify-aadhaar-btn"
+                    class="btn btn-secondary"
+                  >
+                    Verify
+                  </button>
+                </div>
+                <div class="aadhaar-notice">
+                  <small>Your Aadhaar will be verified securely</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address Section (initially hidden) -->
+            <div id="address-section" class="form-section hidden">
+              <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state">
+                  <option value="" disabled selected>Select State</option>
+                  <option value="ANDHRA PRADESH">Andhra Pradesh</option>
+                  <option value="ARUNACHAL PRADESH">Arunachal Pradesh</option>
+                  <option value="ASSAM">Assam</option>
+                  <option value="BIHAR">Bihar</option>
+                  <option value="CHHATTISGARH">Chhattisgarh</option>
+                  <option value="GOA">Goa</option>
+                  <option value="GUJARAT">Gujarat</option>
+                  <option value="HARYANA">Haryana</option>
+                  <option value="HIMACHAL PRADESH">Himachal Pradesh</option>
+                  <option value="JHARKHAND">Jharkhand</option>
+                  <option value="KARNATAKA">Karnataka</option>
+                  <option value="KERALA">Kerala</option>
+                  <option value="MADHYA PRADESH">Madhya Pradesh</option>
+                  <option value="MAHARASHTRA">Maharashtra</option>
+                  <option value="MANIPUR">Manipur</option>
+                  <option value="MEGHALAYA">Meghalaya</option>
+                  <option value="MIZORAM">Mizoram</option>
+                  <option value="NAGALAND">Nagaland</option>
+                  <option value="ODISHA">Odisha</option>
+                  <option value="PUNJAB">Punjab</option>
+                  <option value="RAJASTHAN">Rajasthan</option>
+                  <option value="SIKKIM">Sikkim</option>
+                  <option value="TAMIL NADU">Tamil Nadu</option>
+                  <option value="TELANGANA">Telangana</option>
+                  <option value="TRIPURA">Tripura</option>
+                  <option value="UTTAR PRADESH">Uttar Pradesh</option>
+                  <option value="UTTARAKHAND">Uttarakhand</option>
+                  <option value="WEST BENGAL">West Bengal</option>
+                  <option value="DELHI">Delhi</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="district">District</label>
+                <select id="district" name="district" disabled>
+                  <option value="" disabled selected>Select District</option>
+                  <!-- Districts will be populated based on state selection -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="taluka">Taluka/Tehsil</label>
+                <select id="taluka" name="taluka" disabled>
+                  <option value="" disabled selected>Select Taluka</option>
+                  <!-- Talukas will be populated based on district selection -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="village-city">Village/City</label>
+                <input
+                  type="text"
+                  id="village-city"
+                  name="villageCity"
+                  placeholder="Enter Village or City Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pincode">Pincode</label>
+                <input
+                  type="text"
+                  id="pincode"
+                  name="pincode"
+                  placeholder="6-digit Pincode"
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                />
+              </div>
+            </div>
+
+            <!-- Registration Number Section (initially hidden) -->
+            <div id="registrationNumber-section" class="form-section hidden">
+              <div class="form-group">
+                <label for="registration-number">Registration Number</label>
+                <input
+                  type="text"
+                  id="registration-number"
+                  name="registrationNumber"
+                  placeholder="Enter Registration Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="registration-year">Registration Year</label>
+                <select id="registration-year" name="registrationYear">
+                  <option value="" disabled selected>Select Year</option>
+                  <!-- Populate years dynamically using JavaScript -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="registration-office">Registration Office</label>
+                <input
+                  type="text"
+                  id="registration-office"
+                  name="registrationOffice"
+                  placeholder="Enter Registration Office"
+                />
+              </div>
+            </div>
+
+            <!-- Property Type Section (common for all search types) -->
+            <div class="form-group property-type-section">
+              <label>Property Type</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="property-type-all"
+                    name="propertyType"
+                    value="All"
+                    checked
+                  />
+                  <label for="property-type-all">All</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="property-type-rural"
+                    name="propertyType"
+                    value="Rural"
+                  />
+                  <label for="property-type-rural">Rural</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="property-type-urban"
+                    name="propertyType"
+                    value="Urban"
+                  />
+                  <label for="property-type-urban">Urban</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rural Specific Fields (Initially hidden) -->
+            <div
+              id="rural-fields"
+              class="form-section conditional-section hidden"
+            >
+              <h3>Rural Property Details</h3>
+              <div class="form-group">
+                <label for="survey-number">Survey Number</label>
+                <input
+                  type="text"
+                  id="survey-number"
+                  name="surveyNumber"
+                  placeholder="Enter Survey Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="khasra-number">Khasra Number</label>
+                <input
+                  type="text"
+                  id="khasra-number"
+                  name="khasraNumber"
+                  placeholder="Enter Khasra Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="khata-number">Khata Number</label>
+                <input
+                  type="text"
+                  id="khata-number"
+                  name="khataNumber"
+                  placeholder="Enter Khata Number"
+                />
+              </div>
+            </div>
+
+            <!-- Urban Specific Fields (Initially hidden) -->
+            <div
+              id="urban-fields"
+              class="form-section conditional-section hidden"
+            >
+              <h3>Urban Property Details</h3>
+              <div class="form-group">
+                <label for="municipal-number">Municipal Number</label>
+                <input
+                  type="text"
+                  id="municipal-number"
+                  name="municipalNumber"
+                  placeholder="Enter Municipal Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="plot-number">Plot/Property Number</label>
+                <input
+                  type="text"
+                  id="plot-number"
+                  name="plotNumber"
+                  placeholder="Enter Plot Number"
+                />
+              </div>
+              <div class="form-group">
+                <label for="ward-number">Ward Number</label>
+                <input
+                  type="text"
+                  id="ward-number"
+                  name="wardNumber"
+                  placeholder="Enter Ward Number"
+                />
+              </div>
+            </div>
+
+            <!-- Advanced Search Toggle -->
+            <div class="advanced-search-toggle">
+              <button
+                type="button"
+                id="advanced-search-toggle-btn"
+                class="btn btn-text"
+              >
+                <i class="fas fa-plus-circle"></i> Advanced Search Options
+              </button>
+            </div>
+
+            <!-- Advanced Search Options (Initially hidden) -->
+            <div
+              id="advanced-search-options"
+              class="form-section advanced-section hidden"
+            >
+              <h3>Advanced Search Options</h3>
+              <div class="form-group">
+                <label for="source-system">Source System</label>
+                <select id="source-system" name="sourceSystem">
+                  <option value="" selected>All Systems</option>
+                  <option value="DORIS">DORIS</option>
+                  <option value="DLR">DLR</option>
+                  <option value="CERSAI">CERSAI</option>
+                  <option value="MCA21">MCA21</option>
+                </select>
+              </div>
+              <div class="form-group date-range">
+                <label>Registration Date Range</label>
+                <div class="date-inputs">
+                  <div class="date-input">
+                    <label for="date-from">From</label>
+                    <input type="date" id="date-from" name="dateFrom" />
+                  </div>
+                  <div class="date-input">
+                    <label for="date-to">To</label>
+                    <input type="date" id="date-to" name="dateTo" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Encumbrance Status</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-option">
+                    <input
+                      type="checkbox"
+                      id="encumbrance-all"
+                      name="encumbranceStatus"
+                      value="All"
+                      checked
+                    />
+                    <label for="encumbrance-all">All</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input
+                      type="checkbox"
+                      id="encumbrance-active"
+                      name="encumbranceStatus"
+                      value="Active"
+                    />
+                    <label for="encumbrance-active">Active</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input
+                      type="checkbox"
+                      id="encumbrance-cleared"
+                      name="encumbranceStatus"
+                      value="Cleared"
+                    />
+                    <label for="encumbrance-cleared">Cleared</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input
+                      type="checkbox"
+                      id="encumbrance-disputed"
+                      name="encumbranceStatus"
+                      value="Under Dispute"
+                    />
+                    <label for="encumbrance-disputed">Under Dispute</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="section-header">
+          <h2>Services Offered</h2>
+          <p>Integrated property management services</p>
+        </div>
+        <div class="features-container">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Unified Search</h3>
+            <p>
+              Search across multiple government property databases in one go
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Encumbrance Certificate</h3>
+            <p>View and verify property encumbrances from a single portal</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <h3>Ownership History</h3>
+            <p>Track complete ownership history of properties</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3>Property Mapping</h3>
+            <p>Visual representation of property location and boundaries</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="statistics-section">
+        <div class="statistic-container">
+          <div class="statistic-card">
+            <div class="statistic-number">1.2B+</div>
+            <div class="statistic-label">Property Records</div>
+          </div>
+          <div class="statistic-card">
+            <div class="statistic-number">28+</div>
+            <div class="statistic-label">States & UTs</div>
+          </div>
+          <div class="statistic-card">
+            <div class="statistic-number">4</div>
+            <div class="statistic-label">Integrated Systems</div>
+          </div>
+          <div class="statistic-card">
+            <div class="statistic-number">24x7</div>
+            <div class="statistic-label">Availability</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img
+            src="./images/national-emblem.png"
+            alt="National Emblem of India"
+            class="emblem"
+          />
+          <div class="footer-site-info">
+            <h3>EstateLink</h3>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Help & Support</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Report Issues</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Copyright Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Connect with Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2025 Government of India. All Rights Reserved.</p>
+        </div>
+        <div class="footer-info">
+          <p>Last Updated: April 30, 2025</p>
+          <p>Site Visitors: 12,345,678</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal (Initially Hidden) -->
+    <div id="login-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Login to EstateLink</h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  required
+                  placeholder="Enter your password"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="form-group remember-me">
+              <div class="checkbox-option">
+                <input type="checkbox" id="remember-me" name="rememberMe" />
+                <label for="remember-me">Remember me</label>
+              </div>
+              <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-full">
+                Login
+              </button>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <p>
+              Don't have an account?
+              <a href="#" id="switch-to-register">Register</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register Modal (Initially Hidden) -->
+    <div id="register-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Register for EstateLink</h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="register-form">
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <input
+                type="text"
+                id="register-name"
+                name="name"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email</label>
+              <input
+                type="email"
+                id="register-email"
+                name="email"
+                required
+                placeholder="Enter your email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-phone">Phone Number</label>
+              <input
+                type="tel"
+                id="register-phone"
+                name="phone"
+                pattern="[0-9]{10}"
+                placeholder="10-digit mobile number"
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="register-password"
+                  name="password"
+                  required
+                  placeholder="Create a password"
+                  minlength="6"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-meter"></div>
+                <div class="strength-text">
+                  Password strength: <span>Weak</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="register-password-confirm">Confirm Password</label>
+              <div class="password-input">
+                <input
+                  type="password"
+                  id="register-password-confirm"
+                  name="passwordConfirm"
+                  required
+                  placeholder="Confirm your password"
+                  minlength="6"
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Preferred Language</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="lang-english"
+                    name="preferredLanguage"
+                    value="en"
+                    checked
+                  />
+                  <label for="lang-english">English</label>
+                </div>
+                <div class="radio-option">
+                  <input
+                    type="radio"
+                    id="lang-hindi"
+                    name="preferredLanguage"
+                    value="hi"
+                  />
+                  <label for="lang-hindi">हिन्दी</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group terms-conditions">
+              <div class="checkbox-option">
+                <input
+                  type="checkbox"
+                  id="terms-conditions"
+                  name="termsAccepted"
+                  required
+                />
+                <label for="terms-conditions"
+                  >I agree to the <a href="#">Terms and Conditions</a> and
+                  <a href="#">Privacy Policy</a></label
+                >
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-full">
+                Register
+              </button>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <p>
+              Already have an account?
+              <a href="#" id="switch-to-login">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay for Modals -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/auth.js"></script>
+  </body>
+</html>
