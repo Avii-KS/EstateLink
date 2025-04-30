@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Urban Apartment Building</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Sky Background -->
+        <rect fill="#B3E5FC" x="0" y="0" width="800" height="450"></rect>
+        <!-- Ground -->
+        <rect fill="#9E9E9E" x="0" y="450" width="800" height="150"></rect>
+        <!-- Sidewalk -->
+        <rect fill="#E0E0E0" x="0" y="450" width="800" height="30"></rect>
+        <!-- Road -->
+        <rect fill="#424242" x="0" y="480" width="800" height="120"></rect>
+        <!-- Road Markings -->
+        <rect fill="#FFFFFF" x="50" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="150" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="250" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="350" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="450" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="550" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="650" y="535" width="60" height="10"></rect>
+        <rect fill="#FFFFFF" x="750" y="535" width="60" height="10"></rect>
+        
+        <!-- Apartment Building Main Structure -->
+        <rect fill="#E57373" x="250" y="150" width="300" height="300"></rect>
+        
+        <!-- Building Shadow -->
+        <rect fill="#C62828" x="545" y="150" width="10" height="300"></rect>
+        
+        <!-- Entrance -->
+        <rect fill="#880E4F" x="370" y="400" width="60" height="50"></rect>
+        <rect fill="#4A148C" x="380" y="420" width="40" height="30"></rect>
+        
+        <!-- Windows Row 1 -->
+        <rect fill="#0D47A1" x="270" y="180" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="330" y="180" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="390" y="180" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="450" y="180" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="510" y="180" width="20" height="40" class="window"></rect>
+        
+        <!-- Windows Row 2 -->
+        <rect fill="#0D47A1" x="270" y="240" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="330" y="240" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="390" y="240" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="450" y="240" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="510" y="240" width="20" height="40" class="window"></rect>
+        
+        <!-- Windows Row 3 -->
+        <rect fill="#0D47A1" x="270" y="300" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="330" y="300" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="390" y="300" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="450" y="300" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="510" y="300" width="20" height="40" class="window"></rect>
+        
+        <!-- Windows Row 4 -->
+        <rect fill="#0D47A1" x="270" y="360" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="330" y="360" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="450" y="360" width="40" height="40" class="window"></rect>
+        <rect fill="#0D47A1" x="510" y="360" width="20" height="40" class="window"></rect>
+        
+        <!-- Building Roof -->
+        <rect fill="#B71C1C" x="245" y="140" width="310" height="10"></rect>
+        
+        <!-- Balconies -->
+        <rect fill="#9E9E9E" x="270" y="220" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="330" y="220" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="390" y="220" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="450" y="220" width="40" height="5"></rect>
+        
+        <rect fill="#9E9E9E" x="270" y="280" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="330" y="280" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="390" y="280" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="450" y="280" width="40" height="5"></rect>
+        
+        <rect fill="#9E9E9E" x="270" y="340" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="330" y="340" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="390" y="340" width="40" height="5"></rect>
+        <rect fill="#9E9E9E" x="450" y="340" width="40" height="5"></rect>
+        
+        <!-- A Few Lit Windows -->
+        <rect fill="#FFEB3B" x="390" y="300" width="40" height="40"></rect>
+        <rect fill="#FFEB3B" x="270" y="240" width="40" height="40"></rect>
+        <rect fill="#FFEB3B" x="450" y="360" width="40" height="40"></rect>
+        
+        <!-- Street Lights -->
+        <rect fill="#424242" x="200" y="380" width="5" height="70"></rect>
+        <circle fill="#FFD54F" cx="202.5" cy="380" r="10" class="street-light"></circle>
+        
+        <rect fill="#424242" x="600" y="380" width="5" height="70"></rect>
+        <circle fill="#FFD54F" cx="602.5" cy="380" r="10" class="street-light"></circle>
+        
+        <!-- Trees -->
+        <rect fill="#795548" x="150" y="400" width="10" height="50"></rect>
+        <circle fill="#2E7D32" cx="155" cy="380" r="20"></circle>
+        
+        <rect fill="#795548" x="650" y="400" width="10" height="50"></rect>
+        <circle fill="#2E7D32" cx="655" cy="380" r="20"></circle>
+        
+        <!-- Parked Car -->
+        <rect fill="#3F51B5" x="500" y="440" width="60" height="25" rx="5"></rect>
+        <rect fill="#303F9F" x="510" y="430" width="40" height="15" rx="3"></rect>
+        <circle fill="#212121" cx="510" cy="465" r="8"></circle>
+        <circle fill="#212121" cx="550" cy="465" r="8"></circle>
+    </g>
+    <style>
+        .window {
+            transition: fill 0.5s ease;
+        }
+        .window:hover {
+            fill: #FFEB3B;
+        }
+        .street-light {
+            animation: flicker 5s infinite alternate;
+        }
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 8px rgba(255, 213, 79, 0.8));
+            }
+            5%, 10% {
+                opacity: 0.8;
+                filter: drop-shadow(0 0 5px rgba(255, 213, 79, 0.5));
+            }
+            15%, 25% {
+                opacity: 0.9;
+                filter: drop-shadow(0 0 7px rgba(255, 213, 79, 0.7));
+            }
+            30%, 80% {
+                opacity: 1;
+                filter: drop-shadow(0 0 10px rgba(255, 213, 79, 0.9));
+            }
+            85%, 95% {
+                opacity: 0.9;
+                filter: drop-shadow(0 0 6px rgba(255, 213, 79, 0.6));
+            }
+        }
+    </style>
+</svg> 

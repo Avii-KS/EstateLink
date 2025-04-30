@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EstateLink - Document Management and Verification"
+    />
+    <meta
+      name="keywords"
+      content="document management, digilocker, ekyc, property, government, india"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>Document Management - EstateLink</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/document-management.css" />
+    <link rel="stylesheet" href="./css/ekyc.css" />
+    <link rel="stylesheet" href="./css/identity-verification.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html">
+            <img
+              src="./images/national-emblem.png"
+              alt="National Emblem of India"
+              class="emblem"
+            />
+          </a>
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="property-search.html">Property Search</a></li>
+          <li><a href="Encumbrances.html">Encumbrances</a></li>
+          <li><a href="documents.html" class="active">Documents</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Title Section -->
+      <section class="page-title-section">
+        <div class="container">
+          <h1>Document Management</h1>
+          <p>Securely store, verify, and access your property documents</p>
+        </div>
+      </section>
+
+      <!-- Document Management Section -->
+      <section class="document-management-page">
+        <div class="container">
+          <!-- User Identity Section -->
+          <div class="identity-section">
+            <div class="section-header">
+              <h2><i class="fas fa-id-card"></i> Identity Verification</h2>
+              <p>
+                Verify your identity to access all document management features
+              </p>
+            </div>
+
+            <div class="identity-content">
+              <div class="identity-status unverified">
+                <div class="status-icon">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="status-details">
+                  <h3>Identity Not Verified</h3>
+                  <p>
+                    Please verify your identity using one of the methods below
+                  </p>
+                </div>
+              </div>
+
+              <div class="identity-verification-options">
+                <div class="verification-option">
+                  <div class="option-icon">
+                    <i class="fas fa-fingerprint"></i>
+                  </div>
+                  <div class="option-details">
+                    <h3>Aadhaar eKYC</h3>
+                    <p>
+                      Verify your identity using Aadhaar-based authentication
+                    </p>
+                    <button id="aadhaar-verify-btn" class="btn btn-primary">
+                      Verify with Aadhaar
+                    </button>
+                  </div>
+                </div>
+
+                <div class="verification-option">
+                  <div class="option-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="option-details">
+                    <h3>DigiLocker</h3>
+                    <p>
+                      Connect your DigiLocker account for seamless verification
+                    </p>
+                    <button id="digilocker-connect-btn" class="btn btn-primary">
+                      Connect DigiLocker
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document Upload Section -->
+          <div class="document-upload-section">
+            <div class="section-header">
+              <h2><i class="fas fa-file-upload"></i> Upload Documents</h2>
+              <p>Upload and manage your property-related documents</p>
+            </div>
+
+            <div id="drag-drop-area" class="document-upload-area">
+              <div class="document-upload-icon">
+                <i class="fas fa-file-upload"></i>
+              </div>
+              <h3>Upload Documents</h3>
+              <p>Drag and drop files here or click the button below</p>
+              <form class="document-upload-form">
+                <input
+                  type="file"
+                  id="document-upload"
+                  class="file-input"
+                  multiple
+                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                />
+                <button
+                  type="button"
+                  id="upload-document-btn"
+                  class="upload-btn"
+                >
+                  <i class="fas fa-upload"></i> Select Files
+                </button>
+              </form>
+              <p class="supported-formats">
+                Supported formats: PDF, JPEG, PNG, DOC, DOCX
+              </p>
+
+              <div id="upload-progress" class="upload-progress hidden">
+                <div class="progress-bar-container">
+                  <div
+                    id="progress-bar"
+                    class="progress-bar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <div id="progress-text" class="progress-text">0%</div>
+              </div>
+
+              <div id="document-error" class="document-error hidden"></div>
+            </div>
+
+            <!-- Document Previews -->
+            <div id="document-previews" class="document-previews"></div>
+          </div>
+
+          <!-- DigiLocker Integration Section -->
+          <div class="digilocker-integration">
+            <div class="digilocker-header">
+              <img
+                src="./images/digilocker-logo.png"
+                alt="DigiLocker Logo"
+                class="digilocker-logo"
+              />
+              <h3 class="digilocker-title">Import from DigiLocker</h3>
+            </div>
+            <p class="digilocker-description">
+              Access and import your official documents securely from DigiLocker
+            </p>
+            <div class="digilocker-status">
+              <div class="status-icon">
+                <i class="fas fa-unlink"></i>
+              </div>
+              <div class="status-text">
+                <p>Your DigiLocker account is not connected</p>
+              </div>
+            </div>
+            <button id="digilocker-btn" class="digilocker-btn">
+              <i class="fas fa-cloud-download-alt"></i> Connect to DigiLocker
+            </button>
+          </div>
+
+          <!-- Document List Section -->
+          <div class="document-list-container">
+            <div class="document-list-header">
+              <h3 class="document-list-title">My Documents</h3>
+              <div class="document-list-actions">
+                <button class="btn btn-secondary">
+                  <i class="fas fa-filter"></i> Filter
+                </button>
+                <button class="btn btn-secondary">
+                  <i class="fas fa-sort"></i> Sort
+                </button>
+              </div>
+            </div>
+
+            <table class="document-table">
+              <thead>
+                <tr>
+                  <th>Document Name</th>
+                  <th>Type</th>
+                  <th>Size</th>
+                  <th>Upload Date</th>
+                  <th>Verification</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="document-list">
+                <!-- Document list will be populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- OTP Verification Modal -->
+    <div id="otp-verification-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">OTP Verification</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="otp-info">
+            <p>
+              A 6-digit OTP has been sent to your Aadhaar-linked mobile number
+              for verification.
+            </p>
+            <p>Aadhaar: <span class="masked-aadhaar">XXXX-XXXX-1234</span></p>
+            <span class="otp-timer"
+              >Time remaining: <span id="otp-timer">02:00</span></span
+            >
+          </div>
+
+          <div class="otp-container">
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+          </div>
+
+          <div class="otp-error hidden">Invalid OTP. Please try again.</div>
+
+          <div class="resend-otp">
+            <button class="resend-otp-btn" disabled>Resend OTP</button>
+          </div>
+
+          <button class="verify-otp-btn">
+            <span class="loading-spinner hidden"></span>
+            Verify OTP
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aadhaar Verification Modal -->
+    <div id="aadhaar-verification-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Aadhaar Verification</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="aadhaar-verification">
+            <p>Enter your 12-digit Aadhaar number to verify your identity</p>
+
+            <div class="aadhaar-input-container">
+              <label for="aadhaar-input" class="aadhaar-input-label"
+                >Aadhaar Number</label
+              >
+              <input
+                type="text"
+                id="aadhaar-input"
+                class="aadhaar-input"
+                placeholder="XXXX-XXXX-XXXX"
+                maxlength="14"
+              />
+              <span class="aadhaar-input-hint"
+                >Your Aadhaar data is secure and will only be used for
+                verification</span
+              >
+              <div class="aadhaar-error hidden">
+                Please enter a valid 12-digit Aadhaar number
+              </div>
+            </div>
+
+            <button class="submit-aadhaar-btn btn btn-primary">
+              Continue to Verification
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Data Modal -->
+    <div id="profile-data-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">eKYC Profile Data</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="profile-data">
+            <div class="profile-header">
+              <div class="profile-photo-container">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Profile Photo"
+                  class="profile-photo"
+                />
+              </div>
+              <div class="profile-basic-info">
+                <h3 class="profile-name">Rahul Sharma</h3>
+                <p>
+                  The following information has been fetched from your Aadhaar
+                  eKYC
+                </p>
+              </div>
+            </div>
+
+            <div class="profile-details">
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Gender</div>
+                <div class="profile-detail-value profile-gender">Male</div>
+              </div>
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Date of Birth</div>
+                <div class="profile-detail-value profile-dob">15/06/1985</div>
+              </div>
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Address</div>
+                <div class="profile-detail-value profile-address">
+                  123 Main Street, Apartment 4B, Mumbai, Maharashtra, 400001
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary import-profile-btn">
+            Save Profile Data
+          </button>
+          <button class="btn btn-outline modal-close-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DigiLocker Modal -->
+    <div id="digilocker-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">DigiLocker Authentication</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="digilocker-auth">
+            <div class="digilocker-logo-container">
+              <img
+                src="./images/digilocker-logo.png"
+                alt="DigiLocker Logo"
+                class="digilocker-logo-large"
+              />
+            </div>
+            <p>
+              You will be redirected to DigiLocker for authentication. Please
+              enter your DigiLocker credentials to proceed.
+            </p>
+
+            <div class="digilocker-login-form">
+              <div class="form-group">
+                <label for="digilocker-username">Username/Mobile/Email</label>
+                <input
+                  type="text"
+                  id="digilocker-username"
+                  name="digilockerUsername"
+                />
+              </div>
+              <div class="form-group">
+                <label for="digilocker-password">Password</label>
+                <input
+                  type="password"
+                  id="digilocker-password"
+                  name="digilockerPassword"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary digilocker-login-btn"
+                onclick="EstateLink.DocumentManager.completeDigiLockerAuth(true)"
+              >
+                Login to DigiLocker
+              </button>
+            </div>
+
+            <div class="digilocker-signup">
+              <p>Don't have a DigiLocker account?</p>
+              <a
+                href="https://digilocker.gov.in/signup.php"
+                target="_blank"
+                class="digilocker-signup-link"
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DigiLocker Documents Modal -->
+    <div id="digilocker-documents-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Your DigiLocker Documents</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="digilocker-documents-list" class="digilocker-documents">
+            <!-- Documents will be populated here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verification Methods Modal -->
+    <div id="verification-methods-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Verify Document</h2>
+          <button
+            id="close-verification-modal"
+            class="modal-close"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Choose a verification method:</p>
+
+          <div class="verification-methods">
+            <div class="verification-method" data-method="digilocker">
+              <div class="verification-method-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="verification-method-details">
+                <h3 class="verification-method-title">
+                  DigiLocker Verification
+                </h3>
+                <p class="verification-method-description">
+                  Verify through your DigiLocker account
+                </p>
+              </div>
+            </div>
+
+            <div class="verification-method" data-method="manual">
+              <div class="verification-method-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <div class="verification-method-details">
+                <h3 class="verification-method-title">Manual Verification</h3>
+                <p class="verification-method-description">
+                  Submit for verification by government officials
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img
+            src="./images/national-emblem.png"
+            alt="National Emblem of India"
+            class="emblem"
+          />
+          <div class="footer-site-info">
+            <h3>EstateLink</h3>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Help & Support</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Report Issues</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Copyright Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Connect with Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2025 Government of India. All Rights Reserved.</p>
+        </div>
+        <div class="footer-info">
+          <p>Last Updated: April 30, 2025</p>
+          <p>Site Visitors: 12,345,678</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/main.js"></script>
+    <script src="./js/document-management.js"></script>
+    <script src="./js/ekyc-integration.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize document management system
+        if (typeof EstateLink !== "undefined" && EstateLink.DocumentManager) {
+          EstateLink.DocumentManager.init();
+        }
+
+        // Initialize eKYC system
+        if (typeof EstateLink !== "undefined" && EstateLink.EkycManager) {
+          EstateLink.EkycManager.init();
+        }
+
+        // Add event listeners for identity verification buttons
+        const aadhaarVerifyBtn = document.getElementById("aadhaar-verify-btn");
+        if (aadhaarVerifyBtn) {
+          aadhaarVerifyBtn.addEventListener("click", function () {
+            if (typeof EstateLink !== "undefined" && EstateLink.EkycManager) {
+              EstateLink.EkycManager.showAadhaarVerificationModal();
+            }
+          });
+        }
+
+        const digilockerConnectBtn = document.getElementById(
+          "digilocker-connect-btn"
+        );
+        if (digilockerConnectBtn) {
+          digilockerConnectBtn.addEventListener("click", function () {
+            if (
+              typeof EstateLink !== "undefined" &&
+              EstateLink.DocumentManager
+            ) {
+              EstateLink.DocumentManager.initiateDigiLockerAuth();
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

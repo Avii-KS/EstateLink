@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="EstateLink - Add your property to government databases"
+    />
+    <meta
+      name="keywords"
+      content="property, registration, government, india, real-estate, land records"
+    />
+    <meta name="author" content="Government of India" />
+
+    <title>Property Registration - EstateLink</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/national-emblem.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/map.css" />
+    <link rel="stylesheet" href="./css/document-management.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Maps Wrapper -->
+    <script src="./js/google-maps.js"></script>
+
+    <style>
+      /* Property form styles */
+      .property-form-section {
+        padding: 40px 0;
+        background-color: #f9f9f9;
+      }
+
+      .form-container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+
+      .form-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .form-subtitle {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      .map-container {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+      }
+
+      .location-fields {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .location-fields .form-group {
+        flex: 1;
+      }
+
+      .location-actions {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      /* Property boundary styles */
+      .boundary-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+      }
+
+      .boundary-table th,
+      .boundary-table td {
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        text-align: center;
+      }
+
+      .boundary-table th {
+        background-color: #f2f2f2;
+        font-weight: 500;
+      }
+
+      .boundary-actions {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .document-upload {
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        padding: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+        transition: border-color 0.3s;
+      }
+
+      .document-upload:hover {
+        border-color: #4285f4;
+      }
+
+      .upload-icon {
+        font-size: 48px;
+        color: #4285f4;
+        margin-bottom: 15px;
+      }
+
+      .upload-text {
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      .preview-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .preview-item {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .preview-item .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 255, 255, 0.7);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 14px;
+        color: #ff4757;
+      }
+
+      .progress-container {
+        margin-top: 30px;
+      }
+
+      .progress-steps {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        flex: 1;
+      }
+
+      .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        right: -50%;
+        width: 100%;
+        height: 2px;
+        background-color: #ddd;
+        z-index: 1;
+      }
+
+      .step.active:not(:last-child)::after,
+      .step.completed:not(:last-child)::after {
+        background-color: #4285f4;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ddd;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .step.active .step-number,
+      .step.completed .step-number {
+        background-color: #4285f4;
+      }
+
+      .step.completed .step-number::after {
+        content: "✓";
+        font-size: 16px;
+      }
+
+      .step-label {
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+      }
+
+      .step.active .step-label {
+        color: #4285f4;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Government Branding -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html">
+            <img
+              src="./images/national-emblem.png"
+              alt="National Emblem of India"
+              class="emblem"
+            />
+          </a>
+          <div class="header-text">
+            <h1 class="site-title">EstateLink</h1>
+            <h2 class="site-subtitle">Government of India</h2>
+            <p class="site-tagline">Unified Property Management System</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <div class="language-selector">
+            <select id="language-select" aria-label="Select Language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+          <div class="user-actions">
+            <button id="login-btn" class="btn btn-outline">Login</button>
+            <button id="register-btn" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="property-search.html">Property Search</a></li>
+          <li><a href="Encumbrances.html">Encumbrances</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Title Section -->
+      <section class="page-title-section">
+        <div class="container">
+          <h1>Property Registration</h1>
+          <p>Register your property in the government database</p>
+        </div>
+      </section>
+
+      <!-- Property Form Section -->
+      <section class="property-form-section">
+        <div class="container">
+          <!-- Progress Steps -->
+          <div class="progress-container">
+            <div class="progress-steps">
+              <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-label">Property Details</div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-label">Owner Information</div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-label">Document Upload</div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-label">Payment</div>
+              </div>
+              <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-label">Confirmation</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Details Form -->
+          <form id="property-form" class="form">
+            <div class="form-container">
+              <h2 class="form-title">Property Details</h2>
+
+              <!-- Basic Information -->
+              <h3 class="form-subtitle">Basic Information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-type">Property Type*</label>
+                  <select id="property-type" name="propertyType" required>
+                    <option value="" disabled selected>
+                      Select Property Type
+                    </option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="agricultural">Agricultural</option>
+                    <option value="mixed_use">Mixed Use</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="property-subtype">Property Sub-Type*</label>
+                  <select id="property-subtype" name="propertySubtype" required>
+                    <option value="" disabled selected>Select Sub-Type</option>
+                    <!-- Will be populated based on property type selection -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-area">Total Area*</label>
+                  <div class="input-with-unit">
+                    <input
+                      type="number"
+                      id="property-area"
+                      name="propertyArea"
+                      min="0"
+                      step="0.01"
+                      required
+                      placeholder="Enter area"
+                    />
+                    <select
+                      id="property-area-unit"
+                      name="propertyAreaUnit"
+                      required
+                    >
+                      <option value="sqft">Square Feet</option>
+                      <option value="sqm">Square Meters</option>
+                      <option value="acre">Acres</option>
+                      <option value="hectare">Hectares</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="property-value">Estimated Value (₹)*</label>
+                  <input
+                    type="number"
+                    id="property-value"
+                    name="propertyValue"
+                    min="0"
+                    required
+                    placeholder="Enter property value"
+                  />
+                </div>
+              </div>
+
+              <!-- Location Information -->
+              <h3 class="form-subtitle">Location Information</h3>
+
+              <!-- Map Container -->
+              <div id="property-location-map" class="map-container"></div>
+
+              <div class="location-actions">
+                <button
+                  type="button"
+                  id="use-current-location"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-location-arrow"></i> Use My Location
+                </button>
+                <button
+                  type="button"
+                  id="find-location-btn"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-search-location"></i> Find Location
+                </button>
+                <button
+                  type="button"
+                  id="draw-boundary"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-draw-polygon"></i> Draw Property Boundary
+                </button>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label for="property-location">Property Address*</label>
+                  <input
+                    type="text"
+                    id="property-location"
+                    name="propertyLocation"
+                    required
+                    placeholder="Enter complete address"
+                  />
+                </div>
+              </div>
+
+              <div class="location-fields">
+                <div class="form-group">
+                  <label for="property-latitude">Latitude*</label>
+                  <input
+                    type="text"
+                    id="property-latitude"
+                    name="propertyLatitude"
+                    required
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="property-longitude">Longitude*</label>
+                  <input
+                    type="text"
+                    id="property-longitude"
+                    name="propertyLongitude"
+                    required
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-state">State*</label>
+                  <select id="property-state" name="propertyState" required>
+                    <option value="" disabled selected>Select State</option>
+                    <option value="ANDHRA PRADESH">Andhra Pradesh</option>
+                    <option value="ARUNACHAL PRADESH">Arunachal Pradesh</option>
+                    <option value="ASSAM">Assam</option>
+                    <option value="BIHAR">Bihar</option>
+                    <option value="CHHATTISGARH">Chhattisgarh</option>
+                    <option value="GOA">Goa</option>
+                    <option value="GUJARAT">Gujarat</option>
+                    <option value="HARYANA">Haryana</option>
+                    <option value="HIMACHAL PRADESH">Himachal Pradesh</option>
+                    <option value="JHARKHAND">Jharkhand</option>
+                    <option value="KARNATAKA">Karnataka</option>
+                    <option value="KERALA">Kerala</option>
+                    <option value="MADHYA PRADESH">Madhya Pradesh</option>
+                    <option value="MAHARASHTRA">Maharashtra</option>
+                    <option value="MANIPUR">Manipur</option>
+                    <option value="MEGHALAYA">Meghalaya</option>
+                    <option value="MIZORAM">Mizoram</option>
+                    <option value="NAGALAND">Nagaland</option>
+                    <option value="ODISHA">Odisha</option>
+                    <option value="PUNJAB">Punjab</option>
+                    <option value="RAJASTHAN">Rajasthan</option>
+                    <option value="SIKKIM">Sikkim</option>
+                    <option value="TAMIL NADU">Tamil Nadu</option>
+                    <option value="TELANGANA">Telangana</option>
+                    <option value="TRIPURA">Tripura</option>
+                    <option value="UTTAR PRADESH">Uttar Pradesh</option>
+                    <option value="UTTARAKHAND">Uttarakhand</option>
+                    <option value="WEST BENGAL">West Bengal</option>
+                    <option value="DELHI">Delhi</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="property-district">District*</label>
+                  <select
+                    id="property-district"
+                    name="propertyDistrict"
+                    required
+                  >
+                    <option value="" disabled selected>Select District</option>
+                    <!-- Will be populated based on state selection -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-taluka">Taluka/Tehsil*</label>
+                  <select id="property-taluka" name="propertyTaluka" required>
+                    <option value="" disabled selected>Select Taluka</option>
+                    <!-- Will be populated based on district selection -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="property-village">Village/City*</label>
+                  <input
+                    type="text"
+                    id="property-village"
+                    name="propertyVillage"
+                    required
+                    placeholder="Enter village or city name"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-pincode">PIN Code*</label>
+                  <input
+                    type="text"
+                    id="property-pincode"
+                    name="propertyPincode"
+                    pattern="[0-9]{6}"
+                    maxlength="6"
+                    required
+                    placeholder="Enter 6-digit PIN code"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="property-survey-number"
+                    >Survey/Khasra Number (if applicable)</label
+                  >
+                  <input
+                    type="text"
+                    id="property-survey-number"
+                    name="propertySurveyNumber"
+                    placeholder="Enter survey number"
+                  />
+                </div>
+              </div>
+
+              <!-- Property Boundary Points -->
+              <h3 class="form-subtitle">Property Boundary (Optional)</h3>
+              <p>
+                You can specify the boundary coordinates manually or draw them
+                on the map.
+              </p>
+
+              <table class="boundary-table">
+                <thead>
+                  <tr>
+                    <th>Point</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="boundary-points">
+                  <tr id="boundary-row-template" style="display: none">
+                    <td class="point-number">1</td>
+                    <td><input type="text" class="boundary-lat" readonly /></td>
+                    <td><input type="text" class="boundary-lng" readonly /></td>
+                    <td>
+                      <button type="button" class="btn btn-icon remove-point">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="boundary-actions">
+                <button
+                  type="button"
+                  id="add-boundary-point"
+                  class="btn btn-secondary"
+                >
+                  <i class="fas fa-plus"></i> Add Point
+                </button>
+                <button
+                  type="button"
+                  id="clear-boundary"
+                  class="btn btn-outline"
+                >
+                  <i class="fas fa-trash"></i> Clear All
+                </button>
+              </div>
+
+              <!-- Additional Details -->
+              <h3 class="form-subtitle">Additional Details</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="property-year">Year of Construction</label>
+                  <select id="property-year" name="propertyYear">
+                    <option value="" selected>Select Year</option>
+                    <!-- Will be populated via JavaScript -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="property-status">Property Status*</label>
+                  <select id="property-status" name="propertyStatus" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="ready_to_move">Ready to Move</option>
+                    <option value="under_construction">
+                      Under Construction
+                    </option>
+                    <option value="fully_furnished">Fully Furnished</option>
+                    <option value="semi_furnished">Semi-Furnished</option>
+                    <option value="unfurnished">Unfurnished</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label for="property-description">Property Description</label>
+                  <textarea
+                    id="property-description"
+                    name="propertyDescription"
+                    rows="4"
+                    placeholder="Enter additional details about the property"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Form Actions -->
+              <div class="form-actions">
+                <button type="button" class="btn btn-outline">Cancel</button>
+                <button type="submit" class="btn btn-primary">
+                  Next: Owner Information
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <img
+              src="./images/national-emblem.png"
+              alt="National Emblem of India"
+              class="small-emblem"
+            />
+            <div class="footer-logo-text">
+              <h3>EstateLink</h3>
+              <p>Government of India</p>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact Information</h4>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Ministry of Housing and
+              Urban Affairs, Nirman Bhawan, New Delhi
+            </p>
+            <p><i class="fas fa-phone"></i> +91 11 2306 1000</p>
+            <p><i class="fas fa-envelope"></i> support@estatelink.gov.in</p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">About EstateLink</a></li>
+              <li><a href="#">Registration Process</a></li>
+              <li><a href="#">Encumbrance Certificate</a></li>
+              <li><a href="#">Property Verification</a></li>
+              <li><a href="#">Help & Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-legal">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Accessibility</a></li>
+              <li><a href="#">Site Map</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2023 EstateLink - Government of India. All Rights Reserved.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/property-form.js"></script>
+    <script src="./js/propertyLocation.js"></script>
+  </body>
+</html>

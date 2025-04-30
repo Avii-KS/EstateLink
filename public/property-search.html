@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="./css/form.css" />
     <link rel="stylesheet" href="./css/property-search.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/map.css" />
+    <link rel="stylesheet" href="./css/document-management.css" />
+    <link rel="stylesheet" href="./css/ekyc.css" />
 
     <!-- Font Awesome -->
     <link
@@ -35,6 +38,82 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google Maps Wrapper -->
+    <script src="./js/google-maps.js"></script>
+
+    <!-- Include the MarkerClusterer script for Google Maps -->
+    <script src="https://unpkg.com/@googlemaps/markerclustererplus@1.2.10/dist/index.min.js"></script>
+
+    <style>
+      /* Additional map styling */
+      #map-search-container,
+      #results-map-container {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      /* Search box styling */
+      .map-search-box {
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        width: 300px;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+
+      /* Map button styling */
+      .map-btn {
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .map-btn:hover {
+        background-color: #3367d6;
+      }
+
+      /* Info window styling */
+      .map-info-window {
+        max-width: 300px;
+        padding: 5px;
+      }
+
+      .map-info-window h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      .map-info-window p {
+        margin: 5px 0;
+      }
+
+      .map-info-window .property-details {
+        margin: 10px 0;
+        font-size: 13px;
+      }
+
+      .map-info-window .property-actions {
+        margin-top: 10px;
+      }
+
+      /* Active button state */
+      .btn.active {
+        background-color: #2a579a;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <!-- Header with Government Branding -->
@@ -70,10 +149,13 @@
       <nav class="main-nav">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="property-search.html">Property Search</a></li>
+          <li>
+            <a href="property-search.html" class="active">Property Search</a>
+          </li>
           <li><a href="Encumbrances.html">Encumbrances</a></li>
+          <li><a href="documents.html">Documents</a></li>
           <li><a href="Services.html">Services</a></li>
-          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -103,6 +185,9 @@
                 </button>
                 <button class="search-tab" data-tab="advanced-search">
                   Advanced Search
+                </button>
+                <button class="search-tab" data-tab="map-search">
+                  Map Search
                 </button>
               </div>
 
@@ -177,6 +262,7 @@
                             placeholder="XXXX-XXXX-XXXX"
                             maxlength="12"
                             pattern="[0-9]{12}"
+                            class="aadhaar-input"
                           />
                           <button
                             type="button"
@@ -368,10 +454,10 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="reset" class="btn btn-outline">Reset</button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary submit-search">
                       Search
                     </button>
+                    <button type="reset" class="btn btn-outline">Reset</button>
                   </div>
                 </form>
               </div>
@@ -530,46 +616,149 @@
                   </div>
                 </form>
               </div>
+
+              <!-- Map Search Form -->
+              <div class="search-form-wrapper" id="map-search">
+                <div class="map-search-info">
+                  <h3>Location-Based Property Search</h3>
+                  <p>
+                    Use the map to search for properties by location. You can:
+                  </p>
+                  <ul>
+                    <li>Click on the map to search in a specific area</li>
+                    <li>Use your current location to find nearby properties</li>
+                    <li>Draw a boundary to search within a specific region</li>
+                  </ul>
+                </div>
+
+                <!-- Map container for Google Maps -->
+                <div id="map-search-container" class="map-container">
+                  <!-- Map will be rendered here -->
+                </div>
+
+                <div class="map-search-controls">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="search-radius">Search Radius (km)</label>
+                      <input
+                        type="number"
+                        id="search-radius"
+                        name="searchRadius"
+                        min="0.1"
+                        max="50"
+                        step="0.1"
+                        value="1"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="property-type-map">Property Type</label>
+                      <select id="property-type-map" name="propertyTypeMap">
+                        <option value="all">All Types</option>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="agricultural">Agricultural</option>
+                        <option value="industrial">Industrial</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="map-control-buttons">
+                    <button
+                      type="button"
+                      id="use-my-location"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-location-arrow"></i> Use My Location
+                    </button>
+                    <button
+                      type="button"
+                      id="draw-search-area"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-draw-polygon"></i> Draw Circle
+                    </button>
+                    <button
+                      type="button"
+                      id="draw-polygon"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-draw-polygon"></i> Draw Polygon
+                    </button>
+                    <button
+                      type="button"
+                      id="toggle-heatmap"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-fire"></i> Show Heatmap
+                    </button>
+                    <button
+                      type="button"
+                      id="toggle-clusters"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-object-group"></i> Show Clusters
+                    </button>
+                    <button
+                      type="button"
+                      id="clear-map"
+                      class="btn btn-outline"
+                    >
+                      <i class="fas fa-trash"></i> Clear Map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search Results (initially hidden) -->
+          <div id="search-results" class="search-results hidden">
+            <div class="results-header">
+              <h2>Search Results</h2>
+              <p id="results-number">0 properties found</p>
             </div>
 
-            <!-- Search Results (Initially Hidden) -->
-            <div id="search-results" class="search-results hidden">
-              <h2>Search Results</h2>
-              <div class="results-filters">
-                <div class="results-count">
-                  Showing <span id="results-number">0</span> results
+            <!-- Map and List View Tabs -->
+            <div class="results-view-tabs">
+              <button class="results-tab active" data-view="list-view">
+                <i class="fas fa-list"></i> List View
+              </button>
+              <button class="results-tab" data-view="map-view">
+                <i class="fas fa-map"></i> Map View
+              </button>
+              <button class="results-tab" data-view="split-view">
+                <i class="fas fa-columns"></i> Split View
+              </button>
+            </div>
+
+            <!-- Property Search Results Container -->
+            <div class="property-search-results">
+              <!-- Results List View -->
+              <div id="list-view" class="results-view active list-view">
+                <div class="results-filters">
+                  <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by">
+                      <option value="relevance">Relevance</option>
+                      <option value="price-asc">Price (Low to High)</option>
+                      <option value="price-desc">Price (High to Low)</option>
+                      <option value="date-desc">Recently Added</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="results-sort">
-                  <label for="sort-by">Sort by:</label>
-                  <select id="sort-by">
-                    <option value="relevance">Relevance</option>
-                    <option value="date-desc">Date (Newest)</option>
-                    <option value="date-asc">Date (Oldest)</option>
-                    <option value="value-desc">Value (Highest)</option>
-                    <option value="value-asc">Value (Lowest)</option>
-                  </select>
+
+                <ul id="results-list" class="property-list">
+                  <!-- Results will be dynamically populated here -->
+                </ul>
+              </div>
+
+              <!-- Results Map View -->
+              <div id="map-view" class="results-view map-view">
+                <div id="results-map-container" class="map-container">
+                  <!-- Map will be rendered here -->
                 </div>
               </div>
-              <div id="results-list" class="results-list">
-                <!-- Results will be populated by JavaScript -->
-                <div class="no-results">
-                  <p>
-                    No properties found. Please try a different search criteria.
-                  </p>
-                </div>
-              </div>
-              <div class="results-pagination">
-                <button id="prev-page" class="btn btn-pagination" disabled>
-                  <i class="fas fa-chevron-left"></i> Previous
-                </button>
-                <div class="pagination-info">
-                  Page <span id="current-page">1</span> of
-                  <span id="total-pages">1</span>
-                </div>
-                <button id="next-page" class="btn btn-pagination" disabled>
-                  Next <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
+
+              <!-- Split View (both map and list) will be handled via CSS -->
             </div>
           </div>
         </div>
@@ -615,75 +804,492 @@
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="footer-grid">
-            <div class="footer-section">
-              <h3>EstateLink</h3>
-              <p>Unified Property Management System</p>
-              <div class="footer-emblem">
-                <img
-                  src="./images/national-emblem.png"
-                  alt="National Emblem of India"
+    <!-- Property Details Modal -->
+    <div id="property-details-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Property Details</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="property-details-content">
+            <!-- Property details will be dynamically loaded here -->
+          </div>
+
+          <!-- Document Management Section -->
+          <div class="document-management-section">
+            <h3>Property Documents</h3>
+
+            <!-- Document Upload Area -->
+            <div id="drag-drop-area" class="document-upload-area">
+              <div class="document-upload-icon">
+                <i class="fas fa-file-upload"></i>
+              </div>
+              <h3>Upload Documents</h3>
+              <p>Drag and drop files here or click the button below</p>
+              <form class="document-upload-form">
+                <input
+                  type="file"
+                  id="document-upload"
+                  class="file-input"
+                  multiple
+                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
                 />
-                <p>Government of India</p>
+                <button
+                  type="button"
+                  id="upload-document-btn"
+                  class="upload-btn"
+                >
+                  <i class="fas fa-upload"></i> Select Files
+                </button>
+              </form>
+              <p class="supported-formats">
+                Supported formats: PDF, JPEG, PNG, DOC, DOCX
+              </p>
+
+              <div id="upload-progress" class="upload-progress hidden">
+                <div class="progress-bar-container">
+                  <div
+                    id="progress-bar"
+                    class="progress-bar"
+                    style="width: 0%"
+                  ></div>
+                </div>
+                <div id="progress-text" class="progress-text">0%</div>
+              </div>
+
+              <div id="document-error" class="document-error hidden"></div>
+            </div>
+
+            <!-- Document Previews -->
+            <div id="document-previews" class="document-previews"></div>
+
+            <!-- DigiLocker Integration -->
+            <div class="digilocker-integration">
+              <div class="digilocker-header">
+                <img
+                  src="./images/digilocker-logo.png"
+                  alt="DigiLocker Logo"
+                  class="digilocker-logo"
+                />
+                <h3 class="digilocker-title">Import from DigiLocker</h3>
+              </div>
+              <p class="digilocker-description">
+                Securely access and import your documents from DigiLocker
+              </p>
+              <button id="digilocker-btn" class="digilocker-btn">
+                <i class="fas fa-cloud-download-alt"></i> Connect to DigiLocker
+              </button>
+            </div>
+
+            <!-- Document List -->
+            <div class="document-list-container">
+              <div class="document-list-header">
+                <h3 class="document-list-title">Document List</h3>
+                <div class="document-list-actions">
+                  <button class="btn btn-secondary">
+                    <i class="fas fa-filter"></i> Filter
+                  </button>
+                  <button class="btn btn-secondary">
+                    <i class="fas fa-sort"></i> Sort
+                  </button>
+                </div>
+              </div>
+
+              <table class="document-table">
+                <thead>
+                  <tr>
+                    <th>Document Name</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Upload Date</th>
+                    <th>Verification</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="document-list">
+                  <!-- Document list will be populated here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTP Verification Modal -->
+    <div id="otp-verification-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">OTP Verification</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="otp-info">
+            <p>
+              A 6-digit OTP has been sent to your Aadhaar-linked mobile number
+              for verification.
+            </p>
+            <p>Aadhaar: <span class="masked-aadhaar">XXXX-XXXX-1234</span></p>
+            <span class="otp-timer"
+              >Time remaining: <span id="otp-timer">02:00</span></span
+            >
+          </div>
+
+          <div class="otp-container">
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+            <input
+              type="text"
+              class="otp-input"
+              maxlength="1"
+              pattern="[0-9]"
+              inputmode="numeric"
+            />
+          </div>
+
+          <div class="otp-error hidden">Invalid OTP. Please try again.</div>
+
+          <div class="resend-otp">
+            <button class="resend-otp-btn" disabled>Resend OTP</button>
+          </div>
+
+          <button class="verify-otp-btn">
+            <span class="loading-spinner hidden"></span>
+            Verify OTP
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aadhaar Verification Modal -->
+    <div id="aadhaar-verification-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Aadhaar Verification</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="aadhaar-verification">
+            <p>Enter your 12-digit Aadhaar number to verify your identity</p>
+
+            <div class="aadhaar-input-container">
+              <label for="aadhaar-input" class="aadhaar-input-label"
+                >Aadhaar Number</label
+              >
+              <input
+                type="text"
+                id="aadhaar-input"
+                class="aadhaar-input"
+                placeholder="XXXX-XXXX-XXXX"
+                maxlength="14"
+              />
+              <span class="aadhaar-input-hint"
+                >Your Aadhaar data is secure and will only be used for
+                verification</span
+              >
+              <div class="aadhaar-error hidden">
+                Please enter a valid 12-digit Aadhaar number
               </div>
             </div>
-            <div class="footer-section">
-              <h3>Quick Links</h3>
-              <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="property-search.html">Property Search</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h3>Key Services</h3>
-              <ul class="footer-links">
-                <li><a href="#">Property Registration</a></li>
-                <li><a href="#">Encumbrance Certificate</a></li>
-                <li><a href="#">Property Valuation</a></li>
-                <li><a href="#">Land Records</a></li>
-                <li><a href="#">Document Verification</a></li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h3>Contact Us</h3>
-              <address>
+
+            <button class="submit-aadhaar-btn btn btn-primary">
+              Continue to Verification
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Data Modal -->
+    <div id="profile-data-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">eKYC Profile Data</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="profile-data">
+            <div class="profile-header">
+              <div class="profile-photo-container">
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="Profile Photo"
+                  class="profile-photo"
+                />
+              </div>
+              <div class="profile-basic-info">
+                <h3 class="profile-name">Rahul Sharma</h3>
                 <p>
-                  <i class="fas fa-map-marker-alt"></i> Ministry of Housing and
-                  Urban Affairs
+                  The following information has been fetched from your Aadhaar
+                  eKYC
                 </p>
-                <p>Nirman Bhawan, New Delhi - 110011</p>
-                <p><i class="fas fa-phone"></i> +91-11-23061000</p>
-                <p><i class="fas fa-envelope"></i> support@estatelink.gov.in</p>
-              </address>
+              </div>
             </div>
+
+            <div class="profile-details">
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Gender</div>
+                <div class="profile-detail-value profile-gender">Male</div>
+              </div>
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Date of Birth</div>
+                <div class="profile-detail-value profile-dob">15/06/1985</div>
+              </div>
+              <div class="profile-detail-item">
+                <div class="profile-detail-label">Address</div>
+                <div class="profile-detail-value profile-address">
+                  123 Main Street, Apartment 4B, Mumbai, Maharashtra, 400001
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary import-profile-btn">
+            Import Profile Data
+          </button>
+          <button class="btn btn-outline modal-close-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DigiLocker Modal -->
+    <div id="digilocker-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">DigiLocker Authentication</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="digilocker-auth">
+            <div class="digilocker-logo-container">
+              <img
+                src="./images/digilocker-logo.png"
+                alt="DigiLocker Logo"
+                class="digilocker-logo-large"
+              />
+            </div>
+            <p>
+              You will be redirected to DigiLocker for authentication. Please
+              enter your DigiLocker credentials to proceed.
+            </p>
+
+            <div class="digilocker-login-form">
+              <div class="form-group">
+                <label for="digilocker-username">Username/Mobile/Email</label>
+                <input
+                  type="text"
+                  id="digilocker-username"
+                  name="digilockerUsername"
+                />
+              </div>
+              <div class="form-group">
+                <label for="digilocker-password">Password</label>
+                <input
+                  type="password"
+                  id="digilocker-password"
+                  name="digilockerPassword"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary digilocker-login-btn"
+                onclick="EstateLink.DocumentManager.completeDigiLockerAuth(true)"
+              >
+                Login to DigiLocker
+              </button>
+            </div>
+
+            <div class="digilocker-signup">
+              <p>Don't have a DigiLocker account?</p>
+              <a
+                href="https://digilocker.gov.in/signup.php"
+                target="_blank"
+                class="digilocker-signup-link"
+                >Sign Up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DigiLocker Documents Modal -->
+    <div id="digilocker-documents-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Your DigiLocker Documents</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="digilocker-documents-list" class="digilocker-documents">
+            <!-- Documents will be populated here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline modal-close-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verification Methods Modal -->
+    <div id="verification-methods-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Verify Document</h2>
+          <button
+            id="close-verification-modal"
+            class="modal-close"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Choose a verification method:</p>
+
+          <div class="verification-methods">
+            <div class="verification-method" data-method="digilocker">
+              <div class="verification-method-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="verification-method-details">
+                <h3 class="verification-method-title">
+                  DigiLocker Verification
+                </h3>
+                <p class="verification-method-description">
+                  Verify through your DigiLocker account
+                </p>
+              </div>
+            </div>
+
+            <div class="verification-method" data-method="manual">
+              <div class="verification-method-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <div class="verification-method-details">
+                <h3 class="verification-method-title">Manual Verification</h3>
+                <p class="verification-method-description">
+                  Submit for verification by government officials
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img
+            src="./images/national-emblem.png"
+            alt="National Emblem of India"
+            class="emblem"
+          />
+          <div class="footer-site-info">
+            <h3>EstateLink</h3>
+            <p>Government of India</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-links-column">
+            <h4>Information</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Help & Support</h4>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Report Issues</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Copyright Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Connect with Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="container">
-          <p>
-            &copy; 2023 EstateLink - Government of India. All rights reserved.
-          </p>
-          <div class="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Accessibility</a>
-            <a href="#">Sitemap</a>
-          </div>
+        <div class="copyright">
+          <p>&copy; 2025 Government of India. All Rights Reserved.</p>
+        </div>
+        <div class="footer-info">
+          <p>Last Updated: April 30, 2025</p>
+          <p>Site Visitors: 12,345,678</p>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="./js/main.js"></script>
-    <script src="./js/form.js"></script>
     <script src="./js/property-search.js"></script>
+    <script src="./js/property-map.js"></script>
   </body>
 </html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Rural House 2</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Sky -->
+        <rect fill="#B3E5FC" x="0" y="0" width="800" height="450"></rect>
+        <!-- Ground -->
+        <rect fill="#8BC34A" x="0" y="450" width="800" height="150"></rect>
+        <!-- Farm Field -->
+        <path d="M0,500 C100,480 200,490 300,480 C400,470 500,480 600,490 C700,500 800,490 800,490 L800,550 L0,550 L0,500 Z" fill="#CDDC39"></path>
+        <!-- Farmhouse -->
+        <rect fill="#EFEBE9" x="300" y="300" width="250" height="120"></rect>
+        <!-- House Extension -->
+        <rect fill="#D7CCC8" x="300" y="350" width="80" height="70"></rect>
+        <!-- Main Roof -->
+        <polygon fill="#795548" points="425 220 250 300 600 300"></polygon>
+        <!-- Extension Roof -->
+        <polygon fill="#8D6E63" points="340 300 260 350 380 350"></polygon>
+        <!-- Main Door -->
+        <rect fill="#5D4037" x="390" y="370" width="40" height="70"></rect>
+        <!-- Windows -->
+        <rect fill="#BBDEFB" x="330" y="320" width="30" height="30"></rect>
+        <rect fill="#BBDEFB" x="490" y="320" width="30" height="30"></rect>
+        <rect fill="#BBDEFB" x="450" y="320" width="30" height="30"></rect>
+        <!-- Window frames -->
+        <rect stroke="#5D4037" stroke-width="3" x="330" y="320" width="30" height="30"></rect>
+        <rect stroke="#5D4037" stroke-width="3" x="490" y="320" width="30" height="30"></rect>
+        <rect stroke="#5D4037" stroke-width="3" x="450" y="320" width="30" height="30"></rect>
+        <!-- Chimney -->
+        <rect fill="#5D4037" x="500" y="240" width="20" height="60"></rect>
+        <!-- Smoke -->
+        <ellipse fill="#E0E0E0" cx="510" cy="220" rx="10" ry="7" class="smoke-1"></ellipse>
+        <ellipse fill="#E0E0E0" cx="520" cy="200" rx="12" ry="9" class="smoke-2"></ellipse>
+        <ellipse fill="#E0E0E0" cx="530" cy="180" rx="15" ry="10" class="smoke-3"></ellipse>
+        <!-- Barn -->
+        <rect fill="#BF360C" x="600" y="350" width="120" height="100"></rect>
+        <!-- Barn Roof -->
+        <polygon fill="#6D4C41" points="660 300 580 350 740 350"></polygon>
+        <!-- Barn Door -->
+        <rect fill="#5D4037" x="640" y="400" width="40" height="50"></rect>
+        <!-- Trees -->
+        <rect fill="#5D4037" x="100" y="380" width="15" height="70"></rect>
+        <ellipse fill="#33691E" cx="107" cy="340" rx="35" ry="55"></ellipse>
+        <rect fill="#5D4037" x="180" y="400" width="12" height="50"></rect>
+        <ellipse fill="#33691E" cx="186" cy="370" rx="25" ry="40"></ellipse>
+        <!-- Fence -->
+        <line x1="50" y1="450" x2="50" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="80" y1="450" x2="80" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="110" y1="450" x2="110" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="140" y1="450" x2="140" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="170" y1="450" x2="170" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="200" y1="450" x2="200" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="230" y1="450" x2="230" y2="480" stroke="#8D6E63" stroke-width="5"></line>
+        <line x1="40" y1="460" x2="240" y2="460" stroke="#8D6E63" stroke-width="3"></line>
+    </g>
+    <style>
+        .smoke-1 {
+            animation: float 4s infinite ease-in-out;
+        }
+        .smoke-2 {
+            animation: float 4s infinite ease-in-out;
+            animation-delay: 0.7s;
+        }
+        .smoke-3 {
+            animation: float 4s infinite ease-in-out;
+            animation-delay: 1.4s;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</svg> 

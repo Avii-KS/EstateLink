@@ -1,0 +1,394 @@
+/* eKYC Styles */
+.ekyc-section {
+  margin-bottom: 30px;
+}
+
+.ekyc-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.ekyc-description {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Aadhaar Verification */
+.aadhaar-verification {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+}
+
+.aadhaar-input-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.aadhaar-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.aadhaar-input:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+.aadhaar-input-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.aadhaar-input-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.aadhaar-input-hint {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.aadhaar-error {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* OTP Verification Modal */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.otp-input {
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.otp-input:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+}
+
+.otp-info {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.masked-aadhaar {
+  font-weight: 600;
+  color: #333;
+}
+
+.otp-timer {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.otp-error {
+  text-align: center;
+  color: #d9534f;
+  margin-top: 10px;
+}
+
+.resend-otp {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.resend-otp-btn {
+  background: none;
+  border: none;
+  color: #0056b3;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.resend-otp-btn:disabled {
+  color: #666;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.verify-otp-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.verify-otp-btn:hover {
+  background-color: #003d82;
+}
+
+.verify-otp-btn:disabled {
+  background-color: #919191;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Profile Data Modal */
+.profile-data {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-photo-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-basic-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.profile-detail-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.profile-detail-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.profile-detail-value {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.profile-address {
+  grid-column: 1 / -1;
+  white-space: pre-line;
+}
+
+.import-profile-btn {
+  background-color: #28a745;
+}
+
+.import-profile-btn:hover {
+  background-color: #218838;
+}
+
+/* Link Profile Section */
+.link-profile-section {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  border: 1px solid #ddd;
+}
+
+.link-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.link-profile-icon {
+  font-size: 24px;
+  color: #0056b3;
+  background-color: rgba(0, 86, 179, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-profile-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.link-profile-description {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.link-profile-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.link-profile-btn:hover {
+  background-color: #003d82;
+}
+
+/* Alert Messages */
+.alert {
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s;
+  max-width: 300px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Verified Status */
+.verified-indicator {
+  display: inline-block;
+  color: #28a745;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.verified-indicator i {
+  margin-right: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .otp-container {
+    gap: 5px;
+  }
+
+  .otp-input {
+    width: 35px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .alert {
+    left: 20px;
+    right: 20px;
+    max-width: unset;
+  }
+}

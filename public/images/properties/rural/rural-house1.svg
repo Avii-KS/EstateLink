@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Rural House 1</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Ground -->
+        <rect fill="#8BC34A" x="50" y="450" width="700" height="100"></rect>
+        <!-- Path -->
+        <path d="M300,480 C300,480 350,470 400,470 C450,470 500,480 500,480 L500,550 L300,550 L300,480 Z" fill="#B97A57"></path>
+        <!-- House Base -->
+        <rect fill="#E8D8C0" x="350" y="300" width="200" height="150"></rect>
+        <!-- Roof -->
+        <polygon fill="#8D6E63" points="450 200 300 300 600 300"></polygon>
+        <!-- Door -->
+        <rect fill="#795548" x="425" y="400" width="50" height="70"></rect>
+        <!-- Windows -->
+        <rect fill="#B3E5FC" x="375" y="325" width="40" height="40"></rect>
+        <rect fill="#B3E5FC" x="485" y="325" width="40" height="40"></rect>
+        <!-- Window frames -->
+        <rect stroke="#795548" stroke-width="5" x="375" y="325" width="40" height="40"></rect>
+        <rect stroke="#795548" stroke-width="5" x="485" y="325" width="40" height="40"></rect>
+        <line x1="395" y1="325" x2="395" y2="365" stroke="#795548" stroke-width="3"></line>
+        <line x1="375" y1="345" x2="415" y2="345" stroke="#795548" stroke-width="3"></line>
+        <line x1="505" y1="325" x2="505" y2="365" stroke="#795548" stroke-width="3"></line>
+        <line x1="485" y1="345" x2="525" y2="345" stroke="#795548" stroke-width="3"></line>
+        <!-- Chimney -->
+        <rect fill="#795548" x="550" y="225" width="20" height="75"></rect>
+        <!-- Smoke -->
+        <ellipse fill="#E0E0E0" cx="560" cy="210" rx="15" ry="10" class="smoke"></ellipse>
+        <ellipse fill="#E0E0E0" cx="570" cy="190" rx="12" ry="8" class="smoke"></ellipse>
+        <ellipse fill="#E0E0E0" cx="580" cy="170" rx="10" ry="6" class="smoke"></ellipse>
+        <!-- Trees -->
+        <rect fill="#795548" x="150" y="380" width="20" height="70"></rect>
+        <ellipse fill="#558B2F" cx="160" cy="350" rx="40" ry="60"></ellipse>
+        <rect fill="#795548" x="650" y="400" width="15" height="50"></rect>
+        <ellipse fill="#558B2F" cx="658" cy="370" rx="30" ry="50"></ellipse>
+    </g>
+    <style>
+        .smoke {
+            animation: float 4s infinite ease-in-out;
+        }
+        .smoke:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .smoke:nth-child(3) {
+            animation-delay: 1s;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-15px);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</svg> 
