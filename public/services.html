@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/services.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/translation.css" />
 
     <!-- Font Awesome -->
     <link
@@ -54,6 +55,7 @@
           </div>
         </div>
         <div class="header-actions">
+          <div id="google_translate_element" class="google-translate-element"></div>
           <div class="language-selector">
             <select id="language-select" aria-label="Select Language">
               <option value="en">English</option>
@@ -317,5 +319,9 @@
 
     <!-- JavaScript -->
     <script src="./js/main.js"></script>
+    <script type="module">
+      import translationService from './js/translation-service.js';
+      translationService.initialize();
+    </script>
   </body>
 </html>
