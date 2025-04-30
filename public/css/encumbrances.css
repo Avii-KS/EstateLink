@@ -5,8 +5,7 @@
 
 /* Page Title Section */
 .page-title-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('../images/encumbrances-bg.jpg') center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://png.pngtree.com/background/20210709/original/pngtree-creative-synthesis-city-comic-real-estate-picture-image_916360.jpg') center/contain;
   padding: var(--spacing-xxl) var(--spacing-lg);
   text-align: center;
   color: var(--white);

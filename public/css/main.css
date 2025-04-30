@@ -287,7 +287,7 @@ textarea {
 /* Hero Section */
 .hero-section {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../images/hero-bg.jpg");
+  url('https://png.pngtree.com/background/20210709/original/pngtree-creative-synthesis-city-comic-real-estate-picture-image_916360.jpg') center/contain;
   background-size: cover;
   background-position: center;
   color: var(--white);
