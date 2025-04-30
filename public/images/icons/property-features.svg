@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600px" height="200px" viewBox="0 0 600 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Property Feature Icons</title>
+    
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Bedroom Icon -->
+        <g transform="translate(25, 25)" class="feature-icon">
+            <title>Bedroom</title>
+            <circle fill="#E1F5FE" cx="40" cy="40" r="40"></circle>
+            <!-- Bed Frame -->
+            <rect fill="#795548" x="15" y="45" width="50" height="5"></rect>
+            <rect fill="#8D6E63" x="15" y="50" width="5" height="10"></rect>
+            <rect fill="#8D6E63" x="60" y="50" width="5" height="10"></rect>
+            <!-- Mattress -->
+            <rect fill="#ECEFF1" x="15" y="35" width="50" height="10" rx="2"></rect>
+            <!-- Pillow -->
+            <rect fill="#FAFAFA" x="20" y="30" width="15" height="8" rx="2"></rect>
+            <!-- Blanket -->
+            <path d="M15,35 L65,35 L65,45 C55,43 40,47 15,43 L15,35 Z" fill="#90CAF9"></path>
+        </g>
+        
+        <!-- Bathroom Icon -->
+        <g transform="translate(125, 25)" class="feature-icon">
+            <title>Bathroom</title>
+            <circle fill="#E8EAF6" cx="40" cy="40" r="40"></circle>
+            <!-- Bathtub -->
+            <rect fill="#ECEFF1" x="15" y="40" width="50" height="20" rx="5"></rect>
+            <rect fill="#CFD8DC" x="15" y="38" width="50" height="5" rx="2"></rect>
+            <!-- Shower Head -->
+            <rect fill="#78909C" x="60" y="20" width="3" height="15"></rect>
+            <circle fill="#78909C" cx="61.5" cy="20" r="5"></circle>
+            <!-- Water -->
+            <rect fill="#B3E5FC" x="20" y="48" width="40" height="8" rx="2"></rect>
+            <line x1="25" y1="52" x2="35" y2="52" stroke="#E1F5FE" stroke-width="2"></line>
+        </g>
+        
+        <!-- Kitchen Icon -->
+        <g transform="translate(225, 25)" class="feature-icon">
+            <title>Kitchen</title>
+            <circle fill="#FFF3E0" cx="40" cy="40" r="40"></circle>
+            <!-- Stove -->
+            <rect fill="#ECEFF1" x="20" y="30" width="40" height="30" rx="2"></rect>
+            <!-- Burners -->
+            <circle fill="#424242" cx="30" cy="40" r="5"></circle>
+            <circle fill="#424242" cx="50" cy="40" r="5"></circle>
+            <!-- Oven Door -->
+            <rect fill="#BDBDBD" x="25" y="50" width="30" height="5" rx="1"></rect>
+            <!-- Hood -->
+            <rect fill="#90A4AE" x="15" y="20" width="50" height="5"></rect>
+            <rect fill="#78909C" x="30" y="15" width="20" height="5"></rect>
+        </g>
+        
+        <!-- Garage Icon -->
+        <g transform="translate(325, 25)" class="feature-icon">
+            <title>Garage</title>
+            <circle fill="#ECEFF1" cx="40" cy="40" r="40"></circle>
+            <!-- Garage Door -->
+            <rect fill="#CFD8DC" x="15" y="25" width="50" height="35" rx="1"></rect>
+            <!-- Door Sections -->
+            <line x1="15" y1="35" x2="65" y2="35" stroke="#B0BEC5" stroke-width="1"></line>
+            <line x1="15" y1="45" x2="65" y2="45" stroke="#B0BEC5" stroke-width="1"></line>
+            <line x1="15" y1="55" x2="65" y2="55" stroke="#B0BEC5" stroke-width="1"></line>
+            <!-- Garage Structure -->
+            <rect fill="#90A4AE" x="10" y="20" width="60" height="5"></rect>
+            <!-- Car (Simple) -->
+            <rect fill="#5C6BC0" x="25" y="45" width="30" height="10" rx="3"></rect>
+            <circle fill="#212121" cx="30" cy="55" r="3"></circle>
+            <circle fill="#212121" cx="50" cy="55" r="3"></circle>
+        </g>
+        
+        <!-- Area Icon -->
+        <g transform="translate(425, 25)" class="feature-icon">
+            <title>Area</title>
+            <circle fill="#E8F5E9" cx="40" cy="40" r="40"></circle>
+            <!-- Area Measurement -->
+            <rect fill="#81C784" x="15" y="25" width="50" height="30" fill-opacity="0.5"></rect>
+            <!-- Ruler Markings -->
+            <line x1="15" y1="25" x2="15" y2="55" stroke="#2E7D32" stroke-width="2"></line>
+            <line x1="15" y1="55" x2="65" y2="55" stroke="#2E7D32" stroke-width="2"></line>
+            <line x1="65" y1="25" x2="65" y2="55" stroke="#2E7D32" stroke-width="2"></line>
+            <line x1="15" y1="25" x2="65" y2="25" stroke="#2E7D32" stroke-width="2"></line>
+            <!-- Measurement Text -->
+            <text x="32" y="45" font-family="Arial" font-size="10" font-weight="bold" fill="#1B5E20">SQ.M</text>
+        </g>
+        
+        <!-- Pool Icon -->
+        <g transform="translate(25, 125)" class="feature-icon">
+            <title>Swimming Pool</title>
+            <circle fill="#E1F5FE" cx="40" cy="40" r="40"></circle>
+            <!-- Pool -->
+            <rect fill="#29B6F6" x="15" y="25" width="50" height="30" rx="15"></rect>
+            <!-- Water Reflection -->
+            <line x1="25" y1="35" x2="40" y2="35" stroke="#81D4FA" stroke-width="2"></line>
+            <line x1="30" y1="45" x2="55" y2="45" stroke="#81D4FA" stroke-width="2"></line>
+            <!-- Ladder -->
+            <line x1="60" y1="25" x2="60" y2="40" stroke="#ECEFF1" stroke-width="2"></line>
+            <line x1="65" y1="25" x2="65" y2="40" stroke="#ECEFF1" stroke-width="2"></line>
+            <line x1="60" y1="30" x2="65" y2="30" stroke="#ECEFF1" stroke-width="2"></line>
+            <line x1="60" y1="35" x2="65" y2="35" stroke="#ECEFF1" stroke-width="2"></line>
+        </g>
+        
+        <!-- Garden Icon -->
+        <g transform="translate(125, 125)" class="feature-icon">
+            <title>Garden</title>
+            <circle fill="#E8F5E9" cx="40" cy="40" r="40"></circle>
+            <!-- Ground -->
+            <rect fill="#795548" x="15" y="50" width="50" height="10"></rect>
+            <!-- Plants -->
+            <rect fill="#795548" x="25" y="35" width="3" height="15"></rect>
+            <path d="M26.5,20 C30,30 15,30 20,40" stroke="#4CAF50" stroke-width="2" fill="none"></path>
+            <rect fill="#795548" x="40" y="30" width="3" height="20"></rect>
+            <circle fill="#4CAF50" cx="41.5" cy="25" r="8"></circle>
+            <rect fill="#795548" x="55" y="40" width="3" height="10"></rect>
+            <path d="M56.5,25 C60,35 50,30 50,40" stroke="#4CAF50" stroke-width="2" fill="none"></path>
+        </g>
+        
+        <!-- Parking Icon -->
+        <g transform="translate(225, 125)" class="feature-icon">
+            <title>Parking</title>
+            <circle fill="#ECEFF1" cx="40" cy="40" r="40"></circle>
+            <!-- Parking Sign -->
+            <rect fill="#1976D2" x="30" y="15" width="20" height="50" rx="2"></rect>
+            <text x="37" y="45" font-family="Arial" font-size="24" font-weight="bold" fill="white">P</text>
+        </g>
+        
+        <!-- Security Icon -->
+        <g transform="translate(325, 125)" class="feature-icon">
+            <title>Security</title>
+            <circle fill="#ECEFF1" cx="40" cy="40" r="40"></circle>
+            <!-- Shield -->
+            <path d="M40,15 L20,25 L20,45 C20,55 30,65 40,65 C50,65 60,55 60,45 L60,25 L40,15 Z" fill="#455A64"></path>
+            <path d="M40,20 L25,28 L25,43 C25,52 32,58 40,60 C48,58 55,52 55,43 L55,28 L40,20 Z" fill="#78909C"></path>
+            <!-- Checkmark -->
+            <path d="M30,40 L37,47 L50,33" stroke="#ECEFF1" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+        
+        <!-- Air Conditioning Icon -->
+        <g transform="translate(425, 125)" class="feature-icon">
+            <title>Air Conditioning</title>
+            <circle fill="#E1F5FE" cx="40" cy="40" r="40"></circle>
+            <!-- AC Unit -->
+            <rect fill="#B0BEC5" x="20" y="25" width="40" height="30" rx="2"></rect>
+            <!-- Vents -->
+            <rect fill="#78909C" x="25" y="30" width="30" height="5" rx="1"></rect>
+            <rect fill="#78909C" x="25" y="40" width="30" height="5" rx="1"></rect>
+            <!-- Snowflake -->
+            <line x1="40" y1="32.5" x2="40" y2="42.5" stroke="#E1F5FE" stroke-width="1.5"></line>
+            <line x1="35" y1="35" x2="45" y2="40" stroke="#E1F5FE" stroke-width="1.5"></line>
+            <line x1="35" y1="40" x2="45" y2="35" stroke="#E1F5FE" stroke-width="1.5"></line>
+        </g>
+        
+        <!-- Balcony Icon -->
+        <g transform="translate(525, 25)" class="feature-icon">
+            <title>Balcony</title>
+            <circle fill="#EFEBE9" cx="40" cy="40" r="40"></circle>
+            <!-- Balcony Base -->
+            <rect fill="#A1887F" x="15" y="40" width="50" height="5"></rect>
+            <!-- Railings -->
+            <rect fill="#8D6E63" x="15" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="25" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="35" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="45" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="55" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="63" y="25" width="2" height="15"></rect>
+            <rect fill="#8D6E63" x="15" y="25" width="50" height="2"></rect>
+            <rect fill="#8D6E63" x="15" y="33" width="50" height="2"></rect>
+            <!-- Building Connection -->
+            <rect fill="#BCAAA4" x="35" y="45" width="10" height="15"></rect>
+        </g>
+        
+        <!-- Fireplace Icon -->
+        <g transform="translate(525, 125)" class="feature-icon">
+            <title>Fireplace</title>
+            <circle fill="#FFEBEE" cx="40" cy="40" r="40"></circle>
+            <!-- Fireplace Structure -->
+            <rect fill="#795548" x="20" y="20" width="40" height="40"></rect>
+            <rect fill="#3E2723" x="25" y="30" width="30" height="30"></rect>
+            <!-- Mantle -->
+            <rect fill="#8D6E63" x="15" y="25" width="50" height="5"></rect>
+            <!-- Flames -->
+            <path d="M35,55 C35,48 28,45 30,38 C31,42 36,40 35,35 C37,40 43,42 40,50 C47,42 41,35 45,32 C45,40 50,40 48,50 C48,42 55,45 50,40 C52,45 45,55 40,55" fill="#FF5722" class="flames"></path>
+            <path d="M38,50 C38,45 33,43 35,38 C36,42 38,40 38,38 C40,42 45,43 40,48" fill="#FFEB3B" class="flames"></path>
+        </g>
+    </g>
+    
+    <style>
+        .feature-icon {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .feature-icon:hover {
+            transform: scale(1.1);
+        }
+        .flames {
+            animation: flicker 1s infinite alternate;
+            transform-origin: center bottom;
+        }
+        @keyframes flicker {
+            0% {
+                transform: scale(1, 1) translate(0, 0);
+            }
+            25% {
+                transform: scale(1.1, 0.9) translate(-1px, 1px);
+            }
+            50% {
+                transform: scale(0.9, 1.1) translate(1px, -1px);
+            }
+            75% {
+                transform: scale(1.05, 0.95) translate(1px, 0);
+            }
+            100% {
+                transform: scale(1, 1) translate(0, 0);
+            }
+        }
+    </style>
+</svg> 
