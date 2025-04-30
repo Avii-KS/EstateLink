@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Government of India" />
 
-    <title>Property Search - EstateLink</title>
+    <title data-translate="site-title">BhumiSetu - Property Search</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./images/national-emblem.png" type="image/png" />
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="./css/map.css" />
     <link rel="stylesheet" href="./css/document-management.css" />
     <link rel="stylesheet" href="./css/ekyc.css" />
+    <link rel="stylesheet" href="./css/translation.css" />
 
     <!-- Font Awesome -->
     <link
@@ -128,35 +129,30 @@
             />
           </a>
           <div class="header-text">
-            <h1 class="site-title">EstateLink</h1>
-            <h2 class="site-subtitle">Government of India</h2>
-            <p class="site-tagline">Unified Property Management System</p>
+            <h1 class="site-title" data-translate="site-title">BhumiSetu</h1>
+            <h2 class="site-subtitle" data-translate="site-subtitle">Government of India</h2>
+            <p class="site-tagline" data-translate="site-tagline">Unified Property Management System</p>
           </div>
         </div>
         <div class="header-actions">
-          <div class="language-selector">
-            <select id="language-select" aria-label="Select Language">
-              <option value="en">English</option>
-              <option value="hi">हिन्दी</option>
-            </select>
-          </div>
+          <div id="google_translate_element" class="google-translate-element"></div>
           <div class="user-actions">
-            <button id="login-btn" class="btn btn-outline">Login</button>
-            <button id="register-btn" class="btn btn-primary">Register</button>
+            <button id="login-btn" class="btn btn-outline" data-translate="login">Login</button>
+            <button id="register-btn" class="btn btn-primary" data-translate="register">Register</button>
           </div>
         </div>
       </div>
       <nav class="main-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" data-translate="home">Home</a></li>
           <li>
-            <a href="property-search.html" class="active">Property Search</a>
+            <a href="property-search.html" class="active" data-translate="property-search">Property Search</a>
           </li>
-          <li><a href="Encumbrances.html">Encumbrances</a></li>
+          <li><a href="Encumbrances.html" data-translate="encumbrances">Encumbrances</a></li>
           <li><a href="documents.html">Documents</a></li>
-          <li><a href="Services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Services.html" data-translate="services">Services</a></li>
+          <li><a href="about.html" data-translate="about">About</a></li>
+          <li><a href="contact.html" data-translate="contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -1291,5 +1287,9 @@
     <script src="./js/main.js"></script>
     <script src="./js/property-search.js"></script>
     <script src="./js/property-map.js"></script>
+    <script type="module">
+      import translationService from './js/translation-service.js';
+      translationService.initialize();
+    </script>
   </body>
 </html>
