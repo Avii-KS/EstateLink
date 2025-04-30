@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Records - BhumiSetu</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+      <!-- ... existing header code ... -->
+    </header>
+
+    <main class="main-content">
+      <section class="service-form-section">
+        <div class="container">
+          <h1>Land Records</h1>
+          <p>Access and verify land records online</p>
+          
+          <form id="land-records-form" class="service-form">
+            <!-- Location Details -->
+            <div class="form-section">
+              <h2>Location Details</h2>
+              <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                  <option value="">Select State</option>
+                  <option value="ANDHRA PRADESH">Andhra Pradesh</option>
+                  <option value="ARUNACHAL PRADESH">Arunachal Pradesh</option>
+                  <!-- Add all states -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="district">District</label>
+                <select id="district" name="district" required disabled>
+                  <option value="">Select District</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="taluka">Taluka/Tehsil</label>
+                <select id="taluka" name="taluka" required disabled>
+                  <option value="">Select Taluka</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="village">Village</label>
+                <select id="village" name="village" required disabled>
+                  <option value="">Select Village</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Land Details -->
+            <div class="form-section">
+              <h2>Land Details</h2>
+              <div class="form-group">
+                <label for="survey-number">Survey Number</label>
+                <input type="text" id="survey-number" name="surveyNumber" required />
+              </div>
+              <div class="form-group">
+                <label for="khasra-number">Khasra Number</label>
+                <input type="text" id="khasra-number" name="khasraNumber" required />
+              </div>
+              <div class="form-group">
+                <label for="khata-number">Khata Number</label>
+                <input type="text" id="khata-number" name="khataNumber" required />
+              </div>
+              <div class="form-group">
+                <label for="land-area">Land Area (in acres)</label>
+                <input type="number" id="land-area" name="landArea" required min="0.01" step="0.01" />
+              </div>
+            </div>
+
+            <!-- Record Type -->
+            <div class="form-section">
+              <h2>Record Type</h2>
+              <div class="form-group">
+                <label>Select Records to View</label>
+                <div class="checkbox-group">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="record-ownership" name="recordType" value="ownership" checked />
+                    <label for="record-ownership">Ownership Records</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="record-mutation" name="recordType" value="mutation" />
+                    <label for="record-mutation">Mutation Records</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="record-encumbrance" name="recordType" value="encumbrance" />
+                    <label for="record-encumbrance">Encumbrance Records</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="record-boundary" name="recordType" value="boundary" />
+                    <label for="record-boundary">Boundary Records</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Applicant Details -->
+            <div class="form-section">
+              <h2>Applicant Details</h2>
+              <div class="form-group">
+                <label for="applicant-name">Full Name</label>
+                <input type="text" id="applicant-name" name="applicantName" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-aadhaar">Aadhaar Number</label>
+                <input type="text" id="applicant-aadhaar" name="applicantAadhaar" pattern="[0-9]{12}" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-email">Email</label>
+                <input type="email" id="applicant-email" name="applicantEmail" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-phone">Phone Number</label>
+                <input type="tel" id="applicant-phone" name="applicantPhone" pattern="[0-9]{10}" required />
+              </div>
+            </div>
+
+            <!-- Document Upload -->
+            <div class="form-section">
+              <h2>Supporting Documents</h2>
+              <div class="form-group">
+                <label for="id-proof">ID Proof</label>
+                <input type="file" id="id-proof" name="idProof" accept=".pdf,.jpg,.jpeg,.png" required />
+              </div>
+              <div class="form-group">
+                <label for="address-proof">Address Proof</label>
+                <input type="file" id="address-proof" name="addressProof" accept=".pdf,.jpg,.jpeg,.png" required />
+              </div>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="form-section">
+              <h2>Payment Details</h2>
+              <div class="payment-summary">
+                <p>Service Fee: <span class="amount">₹50</span></p>
+                <p>Processing Fee: <span class="amount">₹25</span></p>
+                <p class="total">Total: <span class="amount">₹75</span></p>
+              </div>
+              <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="paymentMethod" required>
+                  <option value="">Select Payment Method</option>
+                  <option value="upi">UPI</option>
+                  <option value="card">Credit/Debit Card</option>
+                  <option value="netbanking">Net Banking</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-section">
+              <div class="form-group terms-conditions">
+                <div class="checkbox-option">
+                  <input type="checkbox" id="terms-accept" name="termsAccept" required />
+                  <label for="terms-accept">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button type="submit" class="btn btn-primary">View Records</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+      <!-- ... existing footer code ... -->
+    </footer>
+
+    <script src="../js/services/land-records.js"></script>
+  </body>
+</html> 

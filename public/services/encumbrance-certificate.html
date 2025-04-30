@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encumbrance Certificate - BhumiSetu</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+      <!-- ... existing header code ... -->
+    </header>
+
+    <main class="main-content">
+      <section class="service-form-section">
+        <div class="container">
+          <h1>Encumbrance Certificate</h1>
+          <p>Request an encumbrance certificate for your property</p>
+          
+          <form id="encumbrance-form" class="service-form">
+            <!-- Property Details -->
+            <div class="form-section">
+              <h2>Property Details</h2>
+              <div class="form-group">
+                <label for="property-id">Property ID</label>
+                <input type="text" id="property-id" name="propertyId" required />
+              </div>
+              <div class="form-group">
+                <label for="property-address">Property Address</label>
+                <textarea id="property-address" name="propertyAddress" required></textarea>
+              </div>
+            </div>
+
+            <!-- Period Details -->
+            <div class="form-section">
+              <h2>Certificate Period</h2>
+              <div class="form-group">
+                <label for="from-date">From Date</label>
+                <input type="date" id="from-date" name="fromDate" required />
+              </div>
+              <div class="form-group">
+                <label for="to-date">To Date</label>
+                <input type="date" id="to-date" name="toDate" required />
+              </div>
+            </div>
+
+            <!-- Purpose -->
+            <div class="form-section">
+              <h2>Purpose</h2>
+              <div class="form-group">
+                <label for="purpose">Select Purpose</label>
+                <select id="purpose" name="purpose" required>
+                  <option value="">Select Purpose</option>
+                  <option value="sale">Property Sale</option>
+                  <option value="loan">Loan Application</option>
+                  <option value="legal">Legal Proceedings</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group" id="other-purpose-group" style="display: none;">
+                <label for="other-purpose">Specify Purpose</label>
+                <input type="text" id="other-purpose" name="otherPurpose" />
+              </div>
+            </div>
+
+            <!-- Applicant Details -->
+            <div class="form-section">
+              <h2>Applicant Details</h2>
+              <div class="form-group">
+                <label for="applicant-name">Full Name</label>
+                <input type="text" id="applicant-name" name="applicantName" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-aadhaar">Aadhaar Number</label>
+                <input type="text" id="applicant-aadhaar" name="applicantAadhaar" pattern="[0-9]{12}" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-email">Email</label>
+                <input type="email" id="applicant-email" name="applicantEmail" required />
+              </div>
+              <div class="form-group">
+                <label for="applicant-phone">Phone Number</label>
+                <input type="tel" id="applicant-phone" name="applicantPhone" pattern="[0-9]{10}" required />
+              </div>
+            </div>
+
+            <!-- Document Upload -->
+            <div class="form-section">
+              <h2>Supporting Documents</h2>
+              <div class="form-group">
+                <label for="id-proof">ID Proof</label>
+                <input type="file" id="id-proof" name="idProof" accept=".pdf,.jpg,.jpeg,.png" required />
+              </div>
+              <div class="form-group">
+                <label for="address-proof">Address Proof</label>
+                <input type="file" id="address-proof" name="addressProof" accept=".pdf,.jpg,.jpeg,.png" required />
+              </div>
+              <div class="form-group">
+                <label for="property-docs">Property Documents</label>
+                <input type="file" id="property-docs" name="propertyDocs" accept=".pdf,.jpg,.jpeg,.png" required />
+              </div>
+            </div>
+
+            <!-- Payment Details -->
+            <div class="form-section">
+              <h2>Payment Details</h2>
+              <div class="payment-summary">
+                <p>Service Fee: <span class="amount">₹100</span></p>
+                <p>Processing Fee: <span class="amount">₹50</span></p>
+                <p class="total">Total: <span class="amount">₹150</span></p>
+              </div>
+              <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="paymentMethod" required>
+                  <option value="">Select Payment Method</option>
+                  <option value="upi">UPI</option>
+                  <option value="card">Credit/Debit Card</option>
+                  <option value="netbanking">Net Banking</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-section">
+              <div class="form-group terms-conditions">
+                <div class="checkbox-option">
+                  <input type="checkbox" id="terms-accept" name="termsAccept" required />
+                  <label for="terms-accept">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button type="submit" class="btn btn-primary">Submit Application</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+      <!-- ... existing footer code ... -->
+    </footer>
+
+    <script src="../js/services/encumbrance-certificate.js"></script>
+  </body>
+</html> 

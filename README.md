@@ -1,6 +1,6 @@
-# EstateLink - Government of India Property Management System
+# BhumiSetu - Government of India Property Management System
 
-EstateLink is a comprehensive web application designed for the Government of India that integrates multiple property registration and management systems (DORIS, DLR, CERSAI, MCA21) into a single unified portal. This application allows citizens and government officials to search, view, and analyze property records and encumbrances from various databases in a standardized format.
+BhumiSetu is a comprehensive web application designed for the Government of India that integrates multiple property registration and management systems (DORIS, DLR, CERSAI, MCA21) into a single unified platform. This application allows citizens and government officials to search, view, and analyze property records and encumbrances from various databases in a standardized format.
 
 ## Key Features
 
@@ -33,7 +33,7 @@ EstateLink is a comprehensive web application designed for the Government of Ind
 ## Project Structure
 
 ```
-EstateLink/
+BhumiSetu/
 ├── config/           # Configuration files
 ├── controllers/      # Controller logic
 ├── middleware/       # Express middleware
@@ -67,8 +67,8 @@ The system provides the following main API endpoints:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/government-of-india/estatelink.git
-   cd estatelink
+   git clone https://github.com/government-of-india/bhumisetu.git
+   cd bhumisetu
    ```
 
 2. Install dependencies:
@@ -83,7 +83,7 @@ The system provides the following main API endpoints:
    ```
    NODE_ENV=development
    PORT=5000
-   MONGO_URI=mongodb://localhost:27017/estatelink
+   MONGO_URI=mongodb://localhost:27017/bhumisetu
    JWT_SECRET=your_jwt_secret
    JWT_EXPIRE=30d
    AADHAAR_API_KEY=your_aadhaar_api_key
@@ -143,4 +143,4 @@ For any queries or support related to this application, please contact:
 
 - Ministry of Electronics & Information Technology
 - National Informatics Centre
-- Email: estatelink-support@gov.in
+- Email: bhumisetu-support@gov.in

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Tax - BhumiSetu</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+    <link rel="stylesheet" href="../css/services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header (Same as index.html) -->
+    <header class="header">
+      <!-- ... existing header code ... -->
+    </header>
+
+    <main class="main-content">
+      <section class="service-form-section">
+        <div class="container">
+          <h1>Property Tax Payment</h1>
+          <p>Pay your property tax online</p>
+          
+          <form id="property-tax-form" class="service-form">
+            <!-- Property Details -->
+            <div class="form-section">
+              <h2>Property Details</h2>
+              <div class="form-group">
+                <label for="property-id">Property ID</label>
+                <input type="text" id="property-id" name="propertyId" required />
+              </div>
+              <div class="form-group">
+                <label for="property-address">Property Address</label>
+                <textarea id="property-address" name="propertyAddress" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="assessment-year">Assessment Year</label>
+                <select id="assessment-year" name="assessmentYear" required>
+                  <option value="">Select Year</option>
+                  <option value="2024">2024-2025</option>
+                  <option value="2023">2023-2024</option>
+                  <option value="2022">2022-2023</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tax Details -->
+            <div class="form-section">
+              <h2>Tax Details</h2>
+              <div class="form-group">
+                <label for="tax-amount">Tax Amount</label>
+                <input type="number" id="tax-amount" name="taxAmount" required readonly />
+              </div>
+              <div class="form-group">
+                <label for="penalty">Late Payment Penalty</label>
+                <input type="number" id="penalty" name="penalty" required readonly />
+              </div>
+              <div class="form-group">
+                <label for="total-amount">Total Amount</label>
+                <input type="number" id="total-amount" name="totalAmount" required readonly />
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-section">
+              <h2>Payment Method</h2>
+              <div class="form-group">
+                <label for="payment-method">Select Payment Method</label>
+                <select id="payment-method" name="paymentMethod" required>
+                  <option value="">Select Payment Method</option>
+                  <option value="upi">UPI</option>
+                  <option value="card">Credit/Debit Card</option>
+                  <option value="netbanking">Net Banking</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-section">
+              <div class="form-group terms-conditions">
+                <div class="checkbox-option">
+                  <input type="checkbox" id="terms-accept" name="termsAccept" required />
+                  <label for="terms-accept">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button type="submit" class="btn btn-primary">Pay Now</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+      <!-- ... existing footer code ... -->
+    </footer>
+
+    <script src="../js/services/property-tax.js"></script>
+  </body>
+</html> 

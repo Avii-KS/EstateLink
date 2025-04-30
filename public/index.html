@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Government of India Property Management System - EstateLink"
+      content="Government of India Property Management System - BhumiSetu"
     />
     <meta
       name="keywords"
@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Government of India" />
 
-    <title>EstateLink - Government of India Property Management System</title>
+    <title data-translate="site-title">BhumiSetu - Property Registration Portal</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./images/national-emblem.png" type="image/png" />
@@ -46,9 +46,9 @@
             class="emblem"
           />
           <div class="header-text">
-            <h1 class="site-title">EstateLink</h1>
-            <h2 class="site-subtitle">Government of India</h2>
-            <p class="site-tagline">Unified Property Management System</p>
+            <h1 class="site-title" data-translate="site-title">BhumiSetu</h1>
+            <h2 class="site-subtitle" data-translate="site-subtitle">Government of India</h2>
+            <p class="site-tagline" data-translate="site-tagline">Unified Property Management System</p>
           </div>
         </div>
         <div class="header-actions">
@@ -56,25 +56,24 @@
             <select id="language-select" aria-label="Select Language">
               <option value="en">English</option>
               <option value="hi">हिन्दी</option>
+              <option value="mr">मराठी</option>
             </select>
           </div>
           <div class="user-actions">
-            <button id="login-btn" class="btn btn-outline">Login</button>
-            <button id="register-btn" class="btn btn-primary">Register</button>
+            <button id="login-btn" class="btn btn-outline" data-translate="login">Login</button>
+            <button id="register-btn" class="btn btn-primary" data-translate="register">Register</button>
           </div>
         </div>
       </div>
       <nav class="main-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="property-search.html" class="active">Property Search</a>
-          </li>
+          <li><a href="index.html" class="active" data-translate="home">Home</a></li>
+          <li><a href="property-search.html">Property Search</a></li>
           <li><a href="Encumbrances.html">Encumbrances</a></li>
           <li><a href="documents.html">Documents</a></li>
           <li><a href="Services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html" data-translate="about">About</a></li>
+          <li><a href="contact.html" data-translate="contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -87,15 +86,13 @@
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
-          <h2>Unified Property Records Portal</h2>
-          <p>
-            Search and access property records from multiple government
-            databases in one place.
-          </p>
+          <h2 data-translate="site-tagline">Welcome to BhumiSetu</h2>
+          <p data-translate="hero-desc">Your one-stop solution for all property registration needs</p>
           <a
             href="property-search.html"
             id="start-search-btn"
             class="btn btn-primary btn-large"
+            data-translate="explore-services"
           >
             Start Your Search
           </a>
@@ -507,7 +504,35 @@
               <i class="fas fa-file-alt"></i>
             </div>
             <h3>Encumbrance Certificate</h3>
-            <p>View and verify property encumbrances from a single portal</p>
+            <p>Generate and verify property encumbrance certificates online</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Property Valuation</h3>
+            <p>Get accurate property valuation reports with market analysis</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Land Records</h3>
+            <p>Access and verify land records including ownership and boundaries</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-file-signature"></i>
+            </div>
+            <h3>Document Verification</h3>
+            <p>Verify property documents and certificates authenticity</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-receipt"></i>
+            </div>
+            <h3>Property Tax</h3>
+            <p>View and pay property tax online with detailed assessment</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">
@@ -527,7 +552,8 @@
       </section>
 
       <!-- Statistics Section -->
-      <section class="statistics-section">
+      
+      
         <div class="statistic-container">
           <div class="statistic-card">
             <div class="statistic-number">1.2B+</div>
@@ -559,7 +585,7 @@
             class="emblem"
           />
           <div class="footer-site-info">
-            <h3>EstateLink</h3>
+            <h3>BhumiSetu</h3>
             <p>Government of India</p>
           </div>
         </div>
@@ -624,7 +650,7 @@
     <div id="login-modal" class="modal hidden">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Login to EstateLink</h3>
+          <h3>Login to BhumiSetu</h3>
           <button class="close-modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -685,7 +711,7 @@
     <div id="register-modal" class="modal hidden">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>Register for EstateLink</h3>
+          <h3>Register for BhumiSetu</h3>
           <button class="close-modal">&times;</button>
         </div>
         <div class="modal-body">
