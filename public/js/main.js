@@ -1,5 +1,5 @@
 /**
- * EstateLink - Government of India Property Management System
+ * BhumiSetu - Government of India Property Management System
  * Main JavaScript
  */
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".site-tagline").textContent =
           "एकीकृत संपत्ति प्रबंधन प्रणाली";
       } else {
-        document.querySelector(".site-title").textContent = "EstateLink";
+        document.querySelector(".site-title").textContent = "BhumiSetu";
         document.querySelector(".site-subtitle").textContent =
           "Government of India";
         document.querySelector(".site-tagline").textContent =

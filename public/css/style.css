@@ -1,0 +1,43 @@
+/* Language Selector Styles */
+#language-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+#language-select:hover {
+    border-color: #007bff;
+}
+
+#language-select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-links {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+[dir="rtl"] .service-card {
+    text-align: right;
+}
+
+[dir="rtl"] .footer-section ul {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+/* Existing styles ... */ 

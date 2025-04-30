@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="EstateLink - Government of India Property Management System"
+      content="BhumiSetu - Government of India Property Management System"
     />
     <meta
       name="keywords"
@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Government of India" />
 
-    <title>Services - EstateLink</title>
+    <title data-translate="services">Services - BhumiSetu</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./images/national-emblem.png" type="image/png" />
@@ -48,9 +48,9 @@
             />
           </a>
           <div class="header-text">
-            <h1 class="site-title">EstateLink</h1>
-            <h2 class="site-subtitle">Government of India</h2>
-            <p class="site-tagline">Unified Property Management System</p>
+            <h1 class="site-title" data-translate="site-title">BhumiSetu</h1>
+            <h2 class="site-subtitle" data-translate="site-subtitle">Government of India</h2>
+            <p class="site-tagline" data-translate="site-tagline">Unified Property Management System</p>
           </div>
         </div>
         <div class="header-actions">
@@ -58,25 +58,24 @@
             <select id="language-select" aria-label="Select Language">
               <option value="en">English</option>
               <option value="hi">हिन्दी</option>
+              <option value="mr">मराठी</option>
             </select>
           </div>
           <div class="user-actions">
-            <button id="login-btn" class="btn btn-outline">Login</button>
-            <button id="register-btn" class="btn btn-primary">Register</button>
+            <button id="login-btn" class="btn btn-outline" data-translate="login">Login</button>
+            <button id="register-btn" class="btn btn-primary" data-translate="register">Register</button>
           </div>
         </div>
       </div>
       <nav class="main-nav">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="property-search.html" class="active">Property Search</a>
-          </li>
-          <li><a href="Encumbrances.html">Encumbrances</a></li>
-          <li><a href="documents.html">Documents</a></li>
-          <li><a href="Services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" data-translate="home">Home</a></li>
+          <li><a href="property-search.html" data-translate="property-search">Property Search</a></li>
+          <li><a href="Encumbrances.html" data-translate="encumbrances">Encumbrances</a></li>
+          <li><a href="documents.html" data-translate="documents">Documents</a></li>
+          <li><a href="Services.html" data-translate="services">Services</a></li>
+          <li><a href="about.html" data-translate="about">About</a></li>
+          <li><a href="contact.html" data-translate="contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -89,7 +88,7 @@
       <!-- Page Title Section -->
       <section class="page-title-section">
         <div class="container">
-          <h1>Our Services</h1>
+          <h1 data-translate="services">Our Services</h1>
           <p>Comprehensive property management solutions for citizens</p>
         </div>
       </section>
@@ -121,33 +120,21 @@
             <!-- Encumbrance Certificate -->
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-certificate"></i>
+                <i class="fas fa-file-alt"></i>
               </div>
-              <h3>Encumbrance Certificate</h3>
-              <p>Obtain encumbrance certificates for property transactions</p>
-              <ul class="service-features">
-                <li>Instant online application</li>
-                <li>Multiple year coverage</li>
-                <li>Digital certificate delivery</li>
-                <li>Verification services</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <h3 data-translate="encumbrance-certificate">Encumbrance Certificate</h3>
+              <p data-translate="encumbrance-certificate-desc">Get a certificate showing all registered transactions for a property</p>
+              <a href="services/encumbrance-certificate.html" class="btn btn-primary" data-translate="apply-now">Apply Now</a>
             </div>
 
             <!-- Property Valuation -->
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-calculator"></i>
+                <i class="fas fa-chart-line"></i>
               </div>
-              <h3>Property Valuation</h3>
-              <p>Get accurate property valuations for various purposes</p>
-              <ul class="service-features">
-                <li>Market value assessment</li>
-                <li>Tax assessment support</li>
-                <li>Historical data analysis</li>
-                <li>Expert consultation</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <h3 data-translate="property-valuation">Property Valuation</h3>
+              <p data-translate="property-valuation-desc">Get an official valuation of your property</p>
+              <a href="services/property-valuation.html" class="btn btn-primary" data-translate="get-valuation">Get Valuation</a>
             </div>
 
             <!-- Land Records -->
@@ -155,31 +142,19 @@
               <div class="service-icon">
                 <i class="fas fa-map-marked-alt"></i>
               </div>
-              <h3>Land Records</h3>
-              <p>Access and manage land records with ease</p>
-              <ul class="service-features">
-                <li>Digital land records</li>
-                <li>Mutation services</li>
-                <li>Boundary verification</li>
-                <li>Survey information</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <h3 data-translate="land-records">Land Records</h3>
+              <p data-translate="land-records-desc">Access and verify land ownership records</p>
+              <a href="services/land-records.html" class="btn btn-primary" data-translate="view-records">View Records</a>
             </div>
 
             <!-- Document Verification -->
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-file-signature"></i>
               </div>
-              <h3>Document Verification</h3>
-              <p>Verify property documents and ownership details</p>
-              <ul class="service-features">
-                <li>Online verification</li>
-                <li>Fraud detection</li>
-                <li>Document authentication</li>
-                <li>History tracking</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <h3 data-translate="document-verification">Document Verification</h3>
+              <p data-translate="document-verification-desc">Verify the authenticity of property documents</p>
+              <a href="services/document-verification.html" class="btn btn-primary" data-translate="verify-now">Verify Now</a>
             </div>
 
             <!-- Property Tax -->
@@ -187,15 +162,9 @@
               <div class="service-icon">
                 <i class="fas fa-file-invoice-dollar"></i>
               </div>
-              <h3>Property Tax</h3>
-              <p>Manage property tax payments and assessments</p>
-              <ul class="service-features">
-                <li>Online tax payment</li>
-                <li>Assessment calculator</li>
-                <li>Payment history</li>
-                <li>Receipt generation</li>
-              </ul>
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <h3 data-translate="property-tax">Property Tax</h3>
+              <p data-translate="property-tax-desc">Pay and manage your property tax online</p>
+              <a href="services/property-tax.html" class="btn btn-primary" data-translate="pay-tax">Pay Tax</a>
             </div>
           </div>
         </div>
@@ -248,7 +217,7 @@
       <!-- Support Section -->
       <section class="support-section">
         <div class="container">
-          <h2>Need Help?</h2>
+          <h2 data-translate="help">Need Help?</h2>
           <div class="support-options">
             <div class="support-card">
               <i class="fas fa-headset"></i>
@@ -266,7 +235,7 @@
               <i class="fas fa-envelope"></i>
               <h3>Email Support</h3>
               <p>Send us your queries via email</p>
-              <a href="mailto:support@estatelink.gov.in" class="btn btn-outline"
+              <a href="mailto:support@bhumisetu.gov.in" class="btn btn-outline"
                 >Email Us</a
               >
             </div>
@@ -285,13 +254,13 @@
             class="emblem"
           />
           <div class="footer-site-info">
-            <h3>EstateLink</h3>
+            <h3>BhumiSetu</h3>
             <p>Government of India</p>
           </div>
         </div>
         <div class="footer-links">
           <div class="footer-links-column">
-            <h4>Information</h4>
+            <h4 data-translate="information">Information</h4>
             <ul>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Services</a></li>
@@ -300,7 +269,7 @@
             </ul>
           </div>
           <div class="footer-links-column">
-            <h4>Help & Support</h4>
+            <h4 data-translate="help-support">Help & Support</h4>
             <ul>
               <li><a href="#">Contact Us</a></li>
               <li><a href="#">Feedback</a></li>
@@ -309,7 +278,7 @@
             </ul>
           </div>
           <div class="footer-links-column">
-            <h4>Legal</h4>
+            <h4 data-translate="legal">Legal</h4>
             <ul>
               <li><a href="#">Terms & Conditions</a></li>
               <li><a href="#">Privacy Policy</a></li>
@@ -319,7 +288,7 @@
           </div>
         </div>
         <div class="footer-social">
-          <h4>Connect with Us</h4>
+          <h4 data-translate="connect-with-us">Connect with Us</h4>
           <div class="social-icons">
             <a href="#" aria-label="Facebook"
               ><i class="fab fa-facebook-f"></i
@@ -337,11 +306,11 @@
       </div>
       <div class="footer-bottom">
         <div class="copyright">
-          <p>&copy; 2025 Government of India. All Rights Reserved.</p>
+          <p data-translate="copyright">&copy; 2025 Government of India. All Rights Reserved.</p>
         </div>
         <div class="footer-info">
-          <p>Last Updated: April 30, 2025</p>
-          <p>Site Visitors: 12,345,678</p>
+          <p data-translate="last-updated">Last Updated: April 30, 2025</p>
+          <p data-translate="site-visitors">Site Visitors: 12,345,678</p>
         </div>
       </div>
     </footer>
